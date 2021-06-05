@@ -6,7 +6,7 @@ set -euxo pipefail
 ### Nginx Install & Run ###
 ###########################
 
-# Dir in user home dir
+# Dir in user home dir for Docker Compose
 mkdir -p ${HOME_DIR}/Docker/Nginx
 cd ${HOME_DIR}/Docker/Nginx
 # Import docker-compose.yml - user

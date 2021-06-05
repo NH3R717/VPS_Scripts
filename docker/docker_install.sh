@@ -9,7 +9,7 @@ set -euxo pipefail
 # Update all packages
 sudo apt -y update
 sudo apt -y upgrade
-# Packages required for Docker
+# Packages specifically required for Docker
 sudo apt install -y \
     apt-transport-https \
     ca-certificates \

@@ -8,7 +8,7 @@ set -euxo pipefail
 
 # Open network port – firewall
 sudo ufw allow ${WIREGUARD_PORT}/udp
-# Dir in user home dir
+# Dir in user home dir for Docker Compose
 mkdir -p ${HOME_DIR}/Docker/Wireguard
 cd ${HOME_DIR}/Docker/Wireguard
 # Add ENV for docker compose
