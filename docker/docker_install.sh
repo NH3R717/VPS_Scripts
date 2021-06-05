@@ -6,6 +6,9 @@ set -euxo pipefail
 ### Package Update & Docker Install ###
 #######################################
 
+echo "boot script pre docker-compose" >> "${HOME_DIR}/test_message.txt"
+echo "boot script pre docker-compose" >> /test_message2.txt
+
 # Update all packages
 sudo apt -y update
 sudo apt -y upgrade
@@ -27,10 +30,10 @@ echo \
 sudo apt -y update 
 sudo apt -y install \
 docker-ce \
-docker-ce-cli
+docker-ce-cli \
 containerd.io
  
-echo "boot script pre docker-compose" > "${HOME_DIR}/test_message.txt" 
+echo "boot script pre docker-compose" >> "${HOME_DIR}/test_message.txt" 
 
 ## Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
