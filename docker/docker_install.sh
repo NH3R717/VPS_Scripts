@@ -27,10 +27,10 @@ echo \
 sudo apt -y update 
 sudo apt -y install \
 docker-ce \
-docker-ce-cli \
+docker-ce-cli
 containerd.io
  
-echo "boot script pre docker-compose" > ~/test_message.txt 
+echo "boot script pre docker-compose" > "${HOME_DIR}/test_message.txt" 
 
 ## Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -40,4 +40,4 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl enable --now docker
 sudo systemctl is-enabled docker
 
-echo "boot script post docker-compose" >> ~/test_message.txt
+echo "boot script post docker-compose" >> "${HOME_DIR}/test_message.txt"
