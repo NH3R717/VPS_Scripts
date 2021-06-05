@@ -11,7 +11,7 @@ sudo ufw allow 46840/udp
 mkdir -p ~/Docker/Wireguard /
 && cd ~/Docker/Wireguard
 #! docker-compose.yml - user
-sudo curl -L https://raw.githubusercontent.com/NH3R717/cont... > docker-compose.yml
+sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/wireguard/wireguard_install.sh > docker-compose.yml
 #! build and run container
 sudo docker-compose up -d --build
 #? ~ ~ Wait a moment ~ ~ (display's Client QR codes)
