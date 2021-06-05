@@ -1,5 +1,6 @@
 #!/bin/bash
 # Run Fail Safe Command
+exec &>/tmp/script.log
 set -euxo pipefail
 
 #######################################
