@@ -12,8 +12,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Cayman
-      - SERVERURL=${VULTR_IP}
-      - SERVERPORT=${WIREGUARD_PORT}
+      - "SERVERURL=${VULTR_IP}"
+      - "SERVERPORT=${WIREGUARD_PORT}"
       - PEERS=1, 3, 5 #optional
       - PEERDNS=auto #optional
       - INTERNAL_SUBNET=10.13.13.0 #optional
