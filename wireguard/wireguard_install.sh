@@ -8,8 +8,8 @@ set -euxo pipefail
 
 #! From SSH – user (i.e. not root)
 sudo ufw allow 46840/udp
-mkdir -p ~/Docker/Wireguard /
-&& cd ~/Docker/Wireguard
+mkdir -p ~/Docker/Wireguard
+cd ~/Docker/Wireguard
 #! docker-compose.yml - user
 sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/wireguard/wireguard_install.sh > docker-compose.yml
 #! build and run container
