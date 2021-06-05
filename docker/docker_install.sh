@@ -6,11 +6,11 @@ set -euxo pipefail
 ### Package Update & Docker Install ###
 #######################################
 
-echo "boot script pre docker-compose" >> /home/supercat/test_message.txt
+echo "boot script pre docker" >> /home/supercat/test_message.txt
 
 # Update all packages
-sudo apt -y update
-sudo apt -y upgrade
+sudo apt update -y
+sudo apt upgrade -y
 # Packages required for Docker
 sudo apt install -y \
     apt-transport-https \
@@ -27,7 +27,7 @@ echo \
 
 # Docker CE install – latest
 sudo apt -y update 
-sudo apt -y install \
+sudo apt install -y \
 docker-ce \
 docker-ce-cli \
 containerd.io
