@@ -7,9 +7,9 @@ set -euxo pipefail
 ###########################
 
 #! From SSH – user (i.e. not root)
-mkdir -p ~/Docker/Nginx /
-&& cd ~/Docker/Nginx
+mkdir -p ${HOME_DIR}/Docker/Nginx
+cd ${HOME_DIR}/Docker/Nginx
 #! docker-compose.yml
-sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/nginx_proxy_install.sh > docker-compose.yml
+sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/docker-compose.yml > docker-compose.yml
 #! build and run container
 sudo docker-compose up -d --build
