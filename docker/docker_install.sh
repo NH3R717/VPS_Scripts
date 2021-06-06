@@ -10,11 +10,11 @@ set -euxo pipefail
 echo "boot script pre docker" >> /home/supercat/test_message.txt
 
 # Update all packages
-sudo apt update -y
-sudo apt upgrade -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
 # Packages required for Docker
-sudo apt install -y \
-    apt-transport-https \
+sudo apt-get install -y \
+    apt-get-transport-https \
     ca-certificates \
     curl \
     gnupg \
@@ -27,8 +27,8 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Docker CE install – latest
-sudo apt upgrade -y
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get upgrade -y
+sudo apt-get-get install -y docker-ce docker-ce-cli containerd.io
 
 echo "boot script pre docker-compose" >> /home/supercat/test_message.txt
 
