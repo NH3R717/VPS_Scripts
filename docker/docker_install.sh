@@ -27,12 +27,14 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Docker CE install – latest
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get update -y
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 ### Ensure Docker starts at boot
 sudo systemctl enable --now docker
+#? redundent?
 sudo systemctl is-enabled docker
+sudo systemctl start docker
 
 echo "boot script pre docker-compose" >> /home/supercat/test_message.txt
 
@@ -42,4 +44,7 @@ sudo chmod +x /usr/local/bin/docker-compose
  
 echo "boot script post docker-compose" >> /home/supercat/test_message.txt
 
+#! Useful commands here
 #sudo journalctl -eu docker
+#sudo systemctl stop docker && sudo sudo dockerd -D
+#* set firewall rules after docker install
