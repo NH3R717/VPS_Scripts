@@ -28,7 +28,8 @@ echo \
 
 # Docker CE install – latest
 sudo apt-get update -y
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y \
+docker-ce docker-ce-cli containerd.io || true
 
 ### Ensure Docker starts at boot
 sudo systemctl enable --now docker
@@ -48,3 +49,7 @@ echo "boot script post docker-compose" >> /home/supercat/test_message.txt
 #sudo journalctl -eu docker
 #sudo systemctl stop docker && sudo sudo dockerd -D
 #* set firewall rules after docker install
+
+sudo ufw allow from 172.17.0.0\16
+sudo ufw allow all prots for VPN container
+sudo ufw allow local_public_ip
