@@ -28,7 +28,7 @@ echo \
 
 # Docker CE install – latest
 sudo apt-get update -y
-sudo apt-get-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 echo "boot script pre docker-compose" >> /home/supercat/test_message.txt
 
