@@ -1,4 +1,5 @@
 #!/bin/bash
+exec &>/tmp/boot_script_wireguard.log
 # Run Fail Safe Command
 set -euxo pipefail
 
@@ -22,3 +23,7 @@ sudo docker-compose up -d --build
 sudo rm -f .env
 #? ~ ~ Wait a moment ~ ~ (display's Client QR codes)
 #sudo docker exec -it wireguard /app/show-peer 1 3 5
+
+###################################*
+### Useful Commands & Notes here ###
+###################################*

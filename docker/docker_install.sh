@@ -1,5 +1,5 @@
 #!/bin/bash
-exec &>/tmp/script.log
+exec &>/tmp/boot_script_docker.log
 # Run Fail Safe Command
 set -euxo pipefail
 
@@ -35,7 +35,6 @@ docker-ce docker-ce-cli containerd.io || true
 sudo systemctl enable --now docker
 #? redundent?
 sudo systemctl is-enabled docker
-sudo systemctl start docker
 
 echo "boot script pre docker-compose" >> /home/supercat/test_message.txt
 
@@ -45,11 +44,10 @@ sudo chmod +x /usr/local/bin/docker-compose
  
 echo "boot script post docker-compose" >> /home/supercat/test_message.txt
 
-#! Useful commands here
+###################################*
+### Useful Commands & Notes here ###
+###################################*
+
 #sudo journalctl -eu docker
 #sudo systemctl stop docker && sudo sudo dockerd -D
-#* set firewall rules after docker install
-
-sudo ufw allow from 172.17.0.0\16
-sudo ufw allow all prots for VPN container
-sudo ufw allow local_public_ip
+# || true to handle error with specific command
