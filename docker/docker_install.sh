@@ -14,7 +14,7 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 # Packages required for Docker
 sudo apt-get install -y \
-    apt-get-transport-https \
+    apt-transport-https \
     ca-certificates \
     curl \
     gnupg \
