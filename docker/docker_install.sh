@@ -29,7 +29,6 @@ echo \
 # Docker CE install – latest
 sudo apt-get update -y
 sudo apt-get install -y \
-# || true handles error during install docker start
 docker-ce docker-ce-cli containerd.io || true
 
 ### Ensure Docker starts at boot
