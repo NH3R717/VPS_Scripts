@@ -42,7 +42,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ## Create dir for Docker containers – set to user permissions
 mkdir -p "${DOCKER_DIR}"
-chmod 0700 "${DOCKER_DIR}"
+chmod 0750 "${DOCKER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${DOCKER_DIR}"
 
