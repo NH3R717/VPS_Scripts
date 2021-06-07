@@ -11,16 +11,16 @@ export CONTAINER_DIR="${HOME_DIR}/Docker/Wireguard"
 
 # Open network port for VPN – firewall
 sudo ufw allow ${WIREGUARD_PORT}/udp
-## Create dir for Docker container – set to user permissions
-mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
-chmod 0700 "${CONTAINER_DIR}"
-chown --recursive \
-"${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
 # Add ENV for docker-compose.yml use
 echo "VULTR_IP=${VULTR_IP}" >> .env
 echo "WIREGUARD_PORT=${WIREGUARD_PORT}" >> .env
 # Import docker-compose.yml
 sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/wireguard/docker-compose.yml > docker-compose.yml
+## Create dir for Docker container – set to user permissions
+mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
+chmod 0700 "${CONTAINER_DIR}"
+chown --recursive \
+"${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
 # Build and run container w/ ENV
 sudo docker-compose up -d --build
 # Remove .env
