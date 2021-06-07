@@ -7,7 +7,7 @@ set -euxo pipefail
 ### Package Update & Docker Install ###
 #######################################
 
-echo "${USERNAME} pre docker"
+export DOCKER_DIR="${HOME_DIR}/Docker"
 
 # Update all packages
 sudo apt-get update -y
@@ -36,13 +36,15 @@ sudo systemctl enable --now docker
 #? redundent?
 sudo systemctl is-enabled docker
 
-echo "${USERNAME} pre docker-compose"
-
 ## Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
- 
-echo "${USERNAME} post docker-compose"
+
+## Create dir for Docker containers – set to user permissions
+mkdir -p "${DOCKER_DIR}"
+chmod 0700 "${DOCKER_DIR}"
+chown --recursive \
+"${USERNAME}":"${USERNAME}" "${DOCKER_DIR}"
 
 ###################################*
 ### Useful Commands & Notes here ###
