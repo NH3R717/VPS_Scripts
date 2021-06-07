@@ -7,7 +7,7 @@ set -euxo pipefail
 ### Package Update & Docker Install ###
 #######################################
 
-echo "boot script pre docker" >> /home/supercat/test_message.txt
+echo "${USERNAME} pre docker"
 
 # Update all packages
 sudo apt-get update -y
@@ -29,6 +29,7 @@ echo \
 # Docker CE install – latest
 sudo apt-get update -y
 sudo apt-get install -y \
+# || true handles error during install docker start
 docker-ce docker-ce-cli containerd.io || true
 
 ### Ensure Docker starts at boot
@@ -36,13 +37,13 @@ sudo systemctl enable --now docker
 #? redundent?
 sudo systemctl is-enabled docker
 
-echo "boot script pre docker-compose" >> /home/supercat/test_message.txt
+echo "${USERNAME} pre docker-compose"
 
 ## Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
  
-echo "boot script post docker-compose" >> /home/supercat/test_message.txt
+echo "${USERNAME} post docker-compose"
 
 ###################################*
 ### Useful Commands & Notes here ###

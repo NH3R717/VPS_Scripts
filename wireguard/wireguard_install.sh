@@ -21,9 +21,10 @@ sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/wiregu
 sudo docker-compose up -d --build
 # Remove .env
 sudo rm -f .env
-#? ~ ~ Wait a moment ~ ~ (display's Client QR codes)
-#sudo docker exec -it wireguard /app/show-peer 1 3 5
 
 ###################################*
 ### Useful Commands & Notes here ###
 ###################################*
+
+#? ~ ~ Wait a moment ~ ~ (display's Client QR codes)
+#sudo docker exec -it wireguard /app/show-peer 1 3 5
