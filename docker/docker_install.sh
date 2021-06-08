@@ -46,6 +46,9 @@ chmod 0750 "${DOCKER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${DOCKER_DIR}"
 
+## Install unzip for docker file imports
+sudo apt-get unzip
+
 ###################################*
 ### Useful Commands & Notes here ###
 ###################################*

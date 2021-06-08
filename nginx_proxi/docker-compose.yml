@@ -1,22 +1,14 @@
 version: "3"
 services:
   nginx-proxy:
+    container-name: nginx-proxi
+    image: nginx:stable-alpine
     command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
-    ports:
-      - "80:80"
-      - "443:443"
+    expose:
+      - 80:80
+      - 443:443
+    environment:
+      - "VIRTUAL_HOST=wagui.${VULTR_IP}"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: unless-stopped
-    networks:
-      - proxy
-
-networks:
-  proxy:
-    driver: bridge
-
-# command: "sh -c 'echo \"server_tokens off;\nclient_max_body_size 512m;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
-#environment:
-#  - DOCKER_HOST=tcp://${PUBLIC_IP}:3376
