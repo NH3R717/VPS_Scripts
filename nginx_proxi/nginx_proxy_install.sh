@@ -17,6 +17,8 @@ mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 echo "VULTR_IP=${VULTR_IP}" >> .env
 # Import docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/docker-compose.yml > docker-compose.yml
+# Create nginx network
+sudo docker network create nginx-proxy
 # Build and run container
 docker-compose up -d --build
 #  set to user permissions
