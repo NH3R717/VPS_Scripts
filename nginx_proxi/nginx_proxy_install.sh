@@ -16,12 +16,12 @@ mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 # Add ENV for docker-compose.yml use
 echo "VULTR_IP=${VULTR_IP}" >> .env
 # Import docker-compose.yml
-sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/docker-compose.yml > docker-compose.yml
+curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/docker-compose.yml > docker-compose.yml
 # Build and run container
-sudo docker-compose up -d --build
+docker-compose up -d --build
 #  set to user permissions
 chmod 0750 "${CONTAINER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
 # Remove .env
-sudo rm -f .env
+rm -f .env

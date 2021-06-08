@@ -47,7 +47,7 @@ chown --recursive \
 "${USERNAME}":"${USERNAME}" "${DOCKER_DIR}"
 
 ## Install unzip for docker file imports
-sudo apt-get unzip
+sudo apt-get install -y zip
 
 ###################################*
 ### Useful Commands & Notes here ###
