@@ -15,6 +15,7 @@ services:
     networks:
       - proxy
   
-  networks:
-    proxy:
-      driver: bridge
+      networks:
+        proxy:
+          external:
+            name: nginx-proxy

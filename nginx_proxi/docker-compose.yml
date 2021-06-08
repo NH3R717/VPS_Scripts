@@ -12,3 +12,8 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: unless-stopped
+
+networks:
+  proxy:
+    external:
+      name: nginx-proxy
