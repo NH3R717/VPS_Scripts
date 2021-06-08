@@ -8,14 +8,14 @@ services:
       - "443:443"
     env_file:
       - .env
+    environment:
+      - "VIRTUAL_HOST: wagui.${VULTR_IP}"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - "${CONTAINER_DIR}/web_files:/usr/share/nginx/html:ro"
     restart: unless-stopped
-    networks:
-      - proxy
   
-      networks:
-        proxy:
-          external:
-            name: nginx-proxy
+networks:
+  default:
+    external:
+      name: nginx-proxy

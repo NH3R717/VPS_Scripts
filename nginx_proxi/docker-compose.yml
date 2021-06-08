@@ -1,19 +1,19 @@
 version: "3"
 services:
   nginx-proxy:
-    container-name: nginx-proxi
+    container_name: nginx-proxi
     image: nginx:stable-alpine
     command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
-    expose:
+    ports:
       - 80:80
       - 443:443
     environment:
-      - "VIRTUAL_HOST=wagui.${VULTR_IP}"
+      - "VIRTUAL_HOST: wagui.${VULTR_IP}"
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro 
     restart: unless-stopped
 
 networks:
-  proxy:
+  default:
     external:
       name: nginx-proxy
