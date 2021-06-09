@@ -1,7 +1,6 @@
 version: "3"
 services:
   nginx-proxy:
-    container_name: nginx-proxi
     image: jwilder/nginx-proxy
     ports:
       - 80:80
@@ -15,3 +14,5 @@ networks:
     external:
       name: nginx-proxy
 # command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
+
+image: nginx:stable-alpine
