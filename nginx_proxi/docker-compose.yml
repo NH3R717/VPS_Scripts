@@ -2,7 +2,7 @@ version: "3"
 services:
   nginx-proxy:
     container_name: nginx-proxi
-    image: nginx:stable-alpine
+    image: jwilder/nginx-proxy
     ports:
       - 80:80
       - 443:443
