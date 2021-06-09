@@ -15,4 +15,4 @@ networks:
       name: nginx-proxy
 # command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
 
-image: nginx:stable-alpine
+#image: nginx:stable-alpine
