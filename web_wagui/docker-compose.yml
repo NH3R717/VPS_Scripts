@@ -9,7 +9,7 @@ services:
     env_file:
       - .env
     environment:
-      - "VIRTUAL_HOST:wagui.${VULTR_IP}"
+      - "VIRTUAL_HOST:${VULTR_IP}.1234"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - "${CONTAINER_DIR}/web_files:/usr/share/nginx/html:ro"

@@ -14,11 +14,13 @@ echo ${CONTAINER_DIR}
 ## Create dir for Docker container – set to user permissions
 mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 ## Add website dir
-mkdir Web_files && cd Web_files
+mkdir WebFiles && cd WebFiles
 ## Import web files
-curl -O https://github.com/NH3R717/Wagui-Restaurant/archive/refs/heads/master.zip
+curl -LO https://github.com/NH3R717/Wagui-Restaurant/archive/refs/heads/master.zip
 ## uncompress webfiles and remove master.zip 
 unzip master.zip && rm -f master.zip
+## remove unnecessary files
+cd Wagui-Restaurant-master && rm README.md .gitignore && cd ..
 # Add ENV for docker-compose.yml use
 echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
 # Import docker-compose.yml
