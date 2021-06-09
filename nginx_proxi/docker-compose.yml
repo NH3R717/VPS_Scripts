@@ -3,7 +3,7 @@ services:
   nginx-proxy:
     container_name: nginx-proxi
     image: nginx:stable-alpine
-    command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
+    command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf"
     ports:
       - 80:80
       - 443:443
