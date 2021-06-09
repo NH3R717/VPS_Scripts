@@ -18,9 +18,11 @@ mkdir WebFiles && cd WebFiles
 ## Import web files
 curl -LO https://github.com/NH3R717/Wagui-Restaurant/archive/refs/heads/master.zip
 ## uncompress webfiles and remove master.zip 
-unzip master.zip && rm -f master.zip
+unzip master.zip && rm -rf master.zip
 ## remove unnecessary files
-cd Wagui-Restaurant-master && rm README.md .gitignore && cd ..
+cd Wagui-Restaurant-master && rm README.md .gitignore
+## Copy files from Wagui-Restaurant-master to WebFiles
+cp -a . ../WebFiles && cd .. && rm -rf Wagui-Restaurant-master && cd ..
 # Add ENV for docker-compose.yml use
 echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
 # Import docker-compose.yml
