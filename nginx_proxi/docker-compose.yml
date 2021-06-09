@@ -6,16 +6,12 @@ services:
     ports:
       - 80:80
       - 443:443
-      environment:
-        - "VIRTUAL_HOST:wagui.${VULTR_IP}"
-        volumes:
-          - /var/run/docker.sock:/tmp/docker.sock:ro 
-          restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro 
+    restart: unless-stopped
           
-          networks:
-            default:
-              external:
-                name: nginx-proxy
-                
-                
-                # command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
+networks:
+  default:
+    external:
+      name: nginx-proxy
+# command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
