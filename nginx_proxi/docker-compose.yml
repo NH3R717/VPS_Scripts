@@ -2,7 +2,7 @@ version: "3"
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy
-    container_name: nginx_proxi
+    container_name: nginx_proxy
     ports:
       - "80:80"
       # - "443:443"
