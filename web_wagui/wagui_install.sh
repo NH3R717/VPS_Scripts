@@ -17,6 +17,7 @@ mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 # Add ENV for docker-compose.yml use
 echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
 echo "DOMAIN_NAME=${DOMAIN_NAME}" >> .env
+echo "VULTR_IP=${VULTR_IP}" >> .env
 
 ## Add website dir
 mkdir html && cd html
