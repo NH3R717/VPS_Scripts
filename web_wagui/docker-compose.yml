@@ -10,7 +10,7 @@ services:
     environment:
       - VIRTUAL_HOST=wagui.${DOMAIN_NAME}
     volumes:
-      - "${CONTAINER_DIR}/html:/usr/share/nginx:ro"
+      - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
     restart: unless-stopped
   
 networks:
