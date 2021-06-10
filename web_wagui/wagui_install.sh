@@ -3,9 +3,9 @@ exec &>/tmp/wagui_boot_script.log
 # Run Fail Safe Command
 set -euxo pipefail
 
-###############################
-### Wireguard Install & Run ###
-###############################
+#########################
+### Web Install & Run ###
+#########################
 
 export CONTAINER_DIR="${HOME_DIR}/Docker/Wagui"
 
