@@ -28,7 +28,7 @@ unzip master.zip && rm -rf master.zip
 ## remove unnecessary files
 cd Wagui-Restaurant-master && rm README.md .gitignore
 ## Copy files from Wagui-Restaurant-master to WebFiles
-cp -a . ../html && cd .. && rm -rf Wagui-Restaurant-master && cd ..
+cp -a . .. && cd .. && rm -rf Wagui-Restaurant-master && cd ..
 # Import docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web_wagui/docker-compose.yml > docker-compose.yml
 # Build and run container w/ ENV
