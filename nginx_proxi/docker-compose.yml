@@ -5,7 +5,7 @@ services:
     container_name: nginx_proxi
     ports:
       - "80:80"
-      - "443:443"
+      # - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro 
     restart: unless-stopped
@@ -14,6 +14,6 @@ networks:
   default:
     external:
       name: nginx-proxy
-# command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
 
+# command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
 #image: nginx:stable-alpine
