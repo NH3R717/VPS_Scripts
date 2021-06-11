@@ -27,7 +27,7 @@ chmod 0750 "${CONTAINER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
 # Remove .env
-sudo rm -f .env
+# sudo rm -f .env
 
 ###################################*
 ### Useful Commands & Notes here ###

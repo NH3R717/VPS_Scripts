@@ -3,7 +3,7 @@ version: "2.1"
 
 services:
   wireguard:
-    image: ghcr.io/linuxserver/wireguard
+    image: ghcr.io/linuxserver/wireguard:alpine
     container_name: wireguard
     cap_add:
       - NET_ADMIN
