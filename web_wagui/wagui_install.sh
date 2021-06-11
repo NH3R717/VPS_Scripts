@@ -39,8 +39,8 @@ docker-compose up -d --build
 chmod 0750 "${CONTAINER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
-# Remove .env
-rm -f .env
+# Remove .env = (problems w/ docker-compose down)
+# rm -f .env
 
 ###################################*
 ### Useful Commands & Notes here ###
