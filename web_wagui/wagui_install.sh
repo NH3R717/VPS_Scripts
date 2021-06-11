@@ -11,7 +11,7 @@ export CONTAINER_DIR="${HOME_DIR}/Docker/Wagui"
 
 echo ${CONTAINER_DIR}
 
-## Create dir for Docker container – set to user permissions
+## Create dir for Docker container
 mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 
 # Add ENV for docker-compose.yml use
@@ -35,6 +35,7 @@ cp -a . .. && cd .. && rm -rf Wagui-Restaurant-master && cd ..
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web_wagui/docker-compose.yml > docker-compose.yml
 # Build and run container w/ ENV
 docker-compose up -d --build
+
 #  set to user permissions
 chmod 0750 "${CONTAINER_DIR}"
 chown --recursive \

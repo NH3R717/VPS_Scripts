@@ -21,9 +21,10 @@ curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi
 sudo docker network create nginx-proxy
 # Build and run container
 docker-compose up -d --build
+
 #  set to user permissions
 chmod 0750 "${CONTAINER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
 # Remove .env
-rm -f .env
+# rm -f .env
