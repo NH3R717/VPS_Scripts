@@ -1,10 +1,10 @@
 version: "3.8"
 services:
   nginx-alpine-web:
-    image: nginx:alpine
+    image: nginxinc/nginx-unprivileged
     container_name: web_wagui
     expose:
-      - 80
+      - 8080
     env_file:
       - .env
     environment:
@@ -19,3 +19,4 @@ networks:
       name: nginx-proxy
 
 #     - LETSENCRYPT_HOST=domain.com
+# 'ro' = read only
