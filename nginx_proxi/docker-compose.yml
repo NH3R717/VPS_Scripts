@@ -13,9 +13,9 @@ services:
       - nginx_proxy
     volumes:
       - /tmp/nginx:/etc/nginx/conf.d
-      - vhost:/etc/nginx/vhost.d:rw
-      - certs:/etc/nginx/certs:ro
-      - html:/usr/share/nginx/html
+      - ~/Docker/Nginx/vhost:/etc/nginx/vhost.d:rw
+      - ~/Docker/Nginx/certs:/etc/nginx/certs:ro
+      - ~/Docker/Nginx/html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
     labels:
       - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true'
@@ -37,11 +37,11 @@ services:
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock:ro" # REQUIRED: On some OSs you will have to change "left" path
       - "nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro" # REQUIRED: Change "left" path. See nginx image docs
-      - "conf:/etc/nginx/conf.d"
-      - "vhost:/etc/nginx/vhost.d"
-      - "html:/usr/share/nginx/html"
-      - "/path/to/certs:/etc/nginx/certs:ro" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
-      - "/path/to/htpasswd:/etc/nginx/htpasswd" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
+      - "~/Docker/Nginx/conf:/etc/nginx/conf.d"
+      - "~/Docker/Nginx/vhost:/etc/nginx/vhost.d"
+      - "~/Docker/Nginx/html:/usr/share/nginx/html"
+      - "~/Docker/Nginx/certs:/etc/nginx/certs:ro" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
+      - "~/Docker/Nginx/htpasswd:/etc/nginx/htpasswd" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
     entrypoint: /usr/local/bin/docker-gen -notify-sighup nginx-proxy -watch -wait 2s:5s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
     logging:
       options:
@@ -64,6 +64,9 @@ services:
     restart: unless-stopped
     networks: 
       - nginx-proxy
+
+volumes:
+  acme:
 
 
 
