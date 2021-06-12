@@ -13,7 +13,7 @@ services:
       - nginx_proxy
     volumes:
       - /tmp/nginx:/etc/nginx/conf.d
-      - vhost:/etc/nginx/vhost.d
+      - vhost:/etc/nginx/vhost.d:rw
       - certs:/etc/nginx/certs:ro
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
