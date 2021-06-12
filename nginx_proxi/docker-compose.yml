@@ -25,7 +25,7 @@ services:
         max-file: "10"    
     restart: unless-stopped
     networks:
-      - nginx-proxy
+      - nginx_proxy
             
   nginx-gen:
     image: jwilder/docker-gen
@@ -49,13 +49,13 @@ services:
         max-file: "10"
     restart: unless-stopped
     networks: 
-      - nginx-proxy
+      - nginx_proxy
 
   acme-companion:
     image: acme-companion
     container_name: acme_ssl
     volumes_from: 
-      - nginx-proxy
+      - nginx_proxy
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/acme.sh
@@ -63,7 +63,7 @@ services:
       - DEFAULT_EMAIL=${DEFAULT_EMAIL}
     restart: unless-stopped
     networks: 
-      - nginx-proxy
+      - nginx_proxy
 
 volumes:
   acme:
