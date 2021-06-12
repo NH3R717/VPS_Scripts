@@ -12,11 +12,11 @@ services:
     volumes_from: 
       - nginx_proxy
     volumes:
-      - '/tmp/nginx:/etc/nginx/conf.d'
-      - 'vhost:/etc/nginx/vhost.d'
-      - 'certs:/etc/nginx/certs:ro' 
-      - 'html:/usr/share/nginx/html'
-      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+      - /tmp/nginx:/etc/nginx/conf.d
+      - vhost:/etc/nginx/vhost.d
+      - certs:/etc/nginx/certs:ro 
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
       labels:
         - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true'
         logging:
@@ -54,7 +54,7 @@ services:
       default:
         external:
           name: nginx-proxy
-          
+
   acme-companion:
     image: acme-companion
     container_name: acme_ssl
