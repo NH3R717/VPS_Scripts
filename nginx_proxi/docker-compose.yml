@@ -2,7 +2,7 @@ version: "3"
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
-    container_name: nginx_proxy
+    container_name: nginx-proxy
     #HOST:CONTAINER
     ports:
       - '80:80'
@@ -10,7 +10,7 @@ services:
     environment: 
       - DHPARAM_GENERATION=false
     volumes_from: 
-      - nginx_proxy
+      - nginx-proxy
     volumes:
       - /tmp/nginx:/etc/nginx/conf.d
       - ~/Docker/Nginx/vhost:/etc/nginx/vhost.d:rw
@@ -25,7 +25,7 @@ services:
         max-file: "10"    
     restart: unless-stopped
     networks:
-      - nginx_proxy
+      - nginx-proxy
             
   nginx-gen:
     image: jwilder/docker-gen
@@ -33,7 +33,7 @@ services:
     depends_on:
       - nginx-proxy
     volumes_from: 
-      - nginx_proxy
+      - nginx-proxy
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock:ro" # REQUIRED: On some OSs you will have to change "left" path
       - "~/Docker/Nginx/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro" # REQUIRED: Change "left" path. See nginx image docs
@@ -49,13 +49,13 @@ services:
         max-file: "10"
     restart: unless-stopped
     networks: 
-      - nginx_proxy
+      - nginx-proxy
 
   acme-companion:
     image: acme-companion
     container_name: acme_ssl
     volumes_from: 
-      - nginx_proxy
+      - nginx-proxy
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - acme:/etc/acme.sh
@@ -63,13 +63,13 @@ services:
       - DEFAULT_EMAIL=${DEFAULT_EMAIL}
     restart: unless-stopped
     networks: 
-      - nginx_proxy
+      - nginx-proxy
 
 volumes:
   acme:
 
 networks:
-  nginx_proxy:
+  nginx-proxy:
 
 
 
