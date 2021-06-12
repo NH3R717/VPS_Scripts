@@ -24,7 +24,7 @@ services:
         max-size: "4m"
         max-file: "10"    
     restart: unless-stopped
-    networks: 
+    networks:
       - nginx-proxy
             
   nginx-gen:
@@ -67,6 +67,11 @@ services:
 
 volumes:
   acme:
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
 
 
 
