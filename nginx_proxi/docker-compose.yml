@@ -36,7 +36,7 @@ services:
       - nginx_proxy
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock:ro" # REQUIRED: On some OSs you will have to change "left" path
-      - "nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro" # REQUIRED: Change "left" path. See nginx image docs
+      - "~/Docker/Nginx/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro" # REQUIRED: Change "left" path. See nginx image docs
       - "~/Docker/Nginx/conf:/etc/nginx/conf.d"
       - "~/Docker/Nginx/vhost:/etc/nginx/vhost.d"
       - "~/Docker/Nginx/html:/usr/share/nginx/html"

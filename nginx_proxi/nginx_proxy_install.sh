@@ -34,3 +34,4 @@ chown --recursive \
 "${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
 # Remove .env
 # rm -f .env
+
