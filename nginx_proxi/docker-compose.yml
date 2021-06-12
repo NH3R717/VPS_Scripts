@@ -37,9 +37,9 @@ services:
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock:ro" # REQUIRED: On some OSs you will have to change "left" path
       - "nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro" # REQUIRED: Change "left" path. See nginx image docs
-      - "nginx_conf:/etc/nginx/conf.d"
-      - "nginx_vhost:/etc/nginx/vhost.d"
-      - "nginx_html:/usr/share/nginx/html"
+      - "conf:/etc/nginx/conf.d"
+      - "vhost:/etc/nginx/vhost.d"
+      - "html:/usr/share/nginx/html"
       - "/path/to/certs:/etc/nginx/certs:ro" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
       - "/path/to/htpasswd:/etc/nginx/htpasswd" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
     entrypoint: /usr/local/bin/docker-gen -notify-sighup nginx-proxy -watch -wait 2s:5s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
