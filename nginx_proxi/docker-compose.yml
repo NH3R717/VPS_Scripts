@@ -69,7 +69,7 @@ volumes:
   acme:
 
 networks:
-  nginx-proxy:
+  nginx_proxy:
 
 
 
