@@ -23,11 +23,9 @@ services:
       options:
         max-size: "4m"
         max-file: "10"    
-        restart: unless-stopped
-    networks:
-      default:
-        external:
-          name: nginx-proxy
+    restart: unless-stopped
+    networks: 
+      - nginx-proxy
             
   nginx-gen:
     image: jwilder/docker-gen
@@ -50,10 +48,8 @@ services:
         max-size: "4m"
         max-file: "10"
     restart: unless-stopped
-    networks:
-      default:
-        external:
-          name: nginx-proxy
+    networks: 
+      - nginx-proxy
 
   acme-companion:
     image: acme-companion
@@ -65,6 +61,9 @@ services:
       - acme:/etc/acme.sh
     environment: 
       - DEFAULT_EMAIL=${DEFAULT_EMAIL}
+    restart: unless-stopped
+    networks: 
+      - nginx-proxy
 
 
 
