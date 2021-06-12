@@ -11,11 +11,12 @@ export CONTAINER_DIR="${HOME_DIR}/Docker/Nginx"
 
 echo ${CONTAINER_DIR}
 
-# Create dir for Docker container – set to user permissions
-mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 # For docker-gen
 mkdir -p /tmp/templates && cd /tmp/templates
 curl -o nginx.tmpl https://raw.githubusercontent.com/jwilder/docker-gen/master/templates/nginx.tmpl
+
+# Create dir for Docker container – set to user permissions
+mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 
 # Add ENV for docker-compose.yml use
 echo "VULTR_IP=${VULTR_IP}" >> .env

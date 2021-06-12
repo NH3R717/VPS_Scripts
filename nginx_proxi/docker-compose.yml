@@ -5,7 +5,7 @@ services:
     container_name: nginx_proxy
     #HOST:CONTAINER
     ports:
-      - '80:80' 
+      - '80:80'
       - '443:443'
     environment: 
       - DHPARAM_GENERATION=false
@@ -14,20 +14,20 @@ services:
     volumes:
       - /tmp/nginx:/etc/nginx/conf.d
       - vhost:/etc/nginx/vhost.d
-      - certs:/etc/nginx/certs:ro 
+      - certs:/etc/nginx/certs:ro
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      labels:
-        - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true'
-        logging:
-          options:
-            max-size: "4m"
-            max-file: "10"    
-            restart: unless-stopped
-      networks:
-        default:
-          external:
-            name: nginx-proxy
+    labels:
+      - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true'
+    logging:
+      options:
+        max-size: "4m"
+        max-file: "10"    
+        restart: unless-stopped
+    networks:
+      default:
+        external:
+          name: nginx-proxy
             
   nginx-gen:
     image: jwilder/docker-gen
