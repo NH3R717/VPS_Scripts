@@ -3,37 +3,100 @@ services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
     container_name: nginx_proxy
+    #HOST:CONTAINER
     ports:
-      - '80:80'
+      - '80:80' 
       - '443:443'
+    environment: 
+      - DHPARAM_GENERATION=false
+    volumes_from: 
+      - nginx_proxy
     volumes:
-      - '/etc/nginx/vhost.d'
-      - '/usr/share/nginx/html'
-      - '/path/to/certs:/etc/nginx/certs:ro' 
+      - '/tmp/nginx:/etc/nginx/conf.d'
+      - 'vhost:/etc/nginx/vhost.d'
+      - 'certs:/etc/nginx/certs:ro' 
+      - 'html:/usr/share/nginx/html'
       - '/var/run/docker.sock:/tmp/docker.sock:ro'
-    restart: unless-stopped
-    labels:
-      - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true'
-
-    networks:
-      default:
-        external:
-          name: nginx-proxy
-
-  lets_encrypt_nginx_companion:
-    image: jrcs/letsencrypt-nginx-proxy-companion:stable-alpine
-    container_name: letsencrypt-nginx-proxy
+      labels:
+        - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true'
+        logging:
+          options:
+            max-size: "4m"
+            max-file: "10"    
+            restart: unless-stopped
+      networks:
+        default:
+          external:
+            name: nginx-proxy
+            
+  nginx-gen:
+    image: jwilder/docker-gen
+    container_name: nginx_gen
+    depends_on:
+      - nginx-proxy
+    volumes_from: 
+      - nginx_proxy
     volumes:
-      - '/path/to/certs:/etc/nginx/certs:rw'
-      - 'nginx_conf:/etc/nginx/conf.d'
-      - '/var/run/docker.sock:/var/run/docker.sock:ro'
-    volumes_from:
-      - nginx-proxy 
-          
+      - "/var/run/docker.sock:/tmp/docker.sock:ro" # REQUIRED: On some OSs you will have to change "left" path
+      - "nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro" # REQUIRED: Change "left" path. See nginx image docs
+      - "nginx_conf:/etc/nginx/conf.d"
+      - "nginx_vhost:/etc/nginx/vhost.d"
+      - "nginx_html:/usr/share/nginx/html"
+      - "/path/to/certs:/etc/nginx/certs:ro" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
+      - "/path/to/htpasswd:/etc/nginx/htpasswd" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
+    entrypoint: /usr/local/bin/docker-gen -notify-sighup nginx-proxy -watch -wait 2s:5s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
+    logging:
+      options:
+        max-size: "4m"
+        max-file: "10"
+    restart: unless-stopped
     networks:
       default:
         external:
           name: nginx-proxy
+          
+  acme-companion:
+    image: acme-companion
+    container_name: acme_ssl
+    volumes_from: nginx-proxy
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/acme.sh
+    environment: 
+      - DEFAULT_EMAIL=${DEFAULT_EMAIL}
+
+
+
+
+
+
+  # letsencrypt-nginx-proxy-companion:
+  #   image: jrcs/letsencrypt-nginx-proxy-companion
+  #   container_name: letsencrypt-nginx-proxy-companion
+  #   depends_on:
+  #     - nginx-proxy
+  #     - nginx-gen
+  #   volumes:
+  #     - "/var/run/docker.sock:/var/run/docker.sock:ro" # REQUIRED: On some OSs you will have to change "left" path
+  #     - "nginx_conf:/etc/nginx/conf.d"
+  #     - "nginx_vhost:/etc/nginx/vhost.d"
+  #     # - "nginx_html:/usr/share/nginx/html"
+  #     - "/path/to/certs:/etc/nginx/certs:rw" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
+  #     - "/path/to/htpasswd:/etc/nginx/htpasswd" # REQUIRED: Change "left" path. Use the same path as in nginx-proxy
+  #   environment:
+  #     - NGINX_DOCKER_GEN_CONTAINER=nginx-gen
+  #     - NGINX_PROXY_CONTAINER=nginx-proxy
+  #   logging:
+  #     options:
+  #       max-size: "4m"
+  #       max-file: "10"
+  #   restart: unless-stopped
+  #   networks:
+  #     default:
+  #       external:
+  #         name: nginx-proxy
+      
+
 
 # command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
 #image: nginx:stable-alpine
