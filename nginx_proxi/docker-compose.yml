@@ -30,8 +30,8 @@ services:
   nginx-gen:
     image: jwilder/docker-gen
     container_name: nginx_gen
-    depends_on:
-      - nginx-proxy
+    # depends_on:
+    #   - nginx-proxy
     volumes_from: 
       - nginx-proxy
     volumes:
