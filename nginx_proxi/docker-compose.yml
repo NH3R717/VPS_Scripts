@@ -1,20 +1,39 @@
 version: "3"
 services:
   nginx-proxy:
-    image: jwilder/nginx-proxy:stable-alpine
+    image: jwilder/nginx-proxy:alpine
     container_name: nginx_proxy
     ports:
-      - "80:80"
-      # - "80:8080"
-      # - "443:443"
+      - '80:80'
+      - '443:443'
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro 
+      - '/etc/nginx/vhost.d'
+      - '/usr/share/nginx/html'
+      - '/path/to/certs:/etc/nginx/certs:ro' 
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
     restart: unless-stopped
+    labels:
+      - 'com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true'
+
+    networks:
+      default:
+        external:
+          name: nginx-proxy
+
+  lets_encrypt_nginx_companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion:stable-alpine
+    container_name: letsencrypt-nginx-proxy
+    volumes:
+      - '/path/to/certs:/etc/nginx/certs:rw'
+      - 'nginx_conf:/etc/nginx/conf.d'
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    volumes_from:
+      - nginx-proxy 
           
-networks:
-  default:
-    external:
-      name: nginx-proxy
+    networks:
+      default:
+        external:
+          name: nginx-proxy
 
 # command: "sh -c 'echo \"server_tokens off;\" > /etc/nginx/conf.d/my_proxy.conf; forego start -r'"
 #image: nginx:stable-alpine
