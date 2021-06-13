@@ -20,6 +20,7 @@ echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
 echo "DOMAIN_NAME_1=${DOMAIN_NAME_1}" >> .env
 echo "DOMAIN_NAME_2=${DOMAIN_NAME_2}" >> .env
 echo "NETWORK=${NETWORK}" >> .env
+echo "LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}"
 # echo "VULTR_IP=${VULTR_IP}" >> .env
 
 ## Add website dir

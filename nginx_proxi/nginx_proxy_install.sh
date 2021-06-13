@@ -25,6 +25,7 @@ echo NGINX_WEB=nginx-web >> .env
 echo DOCKER_GEN=nginx-gen >> .env
 echo LETS_ENCRYPT=nginx-letsencrypt >> .env
 echo NETWORK=webproxy >> .env
+echo IP=0.0.0.0 >> .env
 echo NGINX_FILES_PATH=${CONTAINER_DIR} >> .env
 echo SERVER_PATH=$(pwd)/.server >> .env 
 echo ROOT_PATH=$(pwd) >> .env
