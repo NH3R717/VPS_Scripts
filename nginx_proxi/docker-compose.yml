@@ -33,7 +33,9 @@ services:
     volumes_from: [nginx-proxy]
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./.server/templates/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:rw
+      # - "./volumes/proxy/templates:/etc/docker-gen/templates:ro"
+      # - ./.server/templates/nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:rw
+      - ./.server/templates/nginx.tmpl:/etc/docker-gen/templates/:rw
     networks:
       - default
 
