@@ -26,8 +26,16 @@ echo DOCKER_GEN=nginx-gen >> .env
 echo LETS_ENCRYPT=nginx-letsencrypt >> .env
 echo NETWORK=webproxy >> .env
 echo NGINX_FILES_PATH=${CONTAINER_DIR} >> .env
-echo SERVER_PATH=$(pwd)/.server >> .env
+echo SERVER_PATH=$(pwd)/.server >> .env 
 echo ROOT_PATH=$(pwd) >> .env
+echo CONTAINER_DIR="${HOME_DIR}/Docker/Nginx" >> .env
+
+
+# 4. Download the latest version of nginx.tmpl
+
+mkdir -p /etc/docker-gen/templates/
+curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > /etc/docker-gen/templates/nginx.tmpl
+
 
 # Import docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/docker-compose.yml > docker-compose.yml
