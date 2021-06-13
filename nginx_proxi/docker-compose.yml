@@ -13,7 +13,7 @@ services:
     environment:
       - DEFAULT_HOST=evin-records.dev
     volumes:
-      - ${SERVER_PATH}/nginx/conf.d:/etc/nginx/conf.d
+      - ${SERVER_PATH}/nginx/conf.d:/etc/nginx/conf.d:rw
       - ${SERVER_PATH}/nginx/vhost.d:/etc/nginx/vhost.d:rw
       - ${ROOT_PATH}/html:/usr/share/nginx/html
       - ${SERVER_PATH}/nginx/certs:/etc/nginx/certs:ro
