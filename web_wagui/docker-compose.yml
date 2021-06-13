@@ -12,6 +12,7 @@ services:
       # - "VIRTUAL_HOST=.${DOMAIN_NAME_1}, .${DOMAIN_NAME_2}"
       - "LETSENCRYPT_HOST=.${DOMAIN_NAME_1}, .${DOMAIN_NAME_2}"
       # - "LETSENCRYPT_HOST=subdomain.yourdomain.tld"
+      - "NETWORK=webproxy"
       # - "VIRTUAL_PORT=8080"
     volumes:
       - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
