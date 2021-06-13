@@ -13,8 +13,8 @@ echo ${CONTAINER_DIR}
 
 
 # For docker-gen
-mkdir -p /tmp/templates && cd /tmp/templates
-curl -o nginx.tmpl https://raw.githubusercontent.com/jwilder/docker-gen/master/templates/nginx.tmpl
+# mkdir -p /tmp/templates && cd /tmp/templates
+# curl -o nginx.tmpl https://raw.githubusercontent.com/jwilder/docker-gen/master/templates/nginx.tmpl
 
 # Create dir for Docker container – set to user permissions
 mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
