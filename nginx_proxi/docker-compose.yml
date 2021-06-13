@@ -4,7 +4,7 @@ services:
 
   nginx-proxy:
     image: jwilder/nginx-proxy
-    container_name: ${NGINX_WEB}
+    container_name: nginx-proxy
     labels:
       com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
     ports:
@@ -21,6 +21,7 @@ services:
     restart: unless-stopped
     networks:
       - default
+
 
   nginx-gen:
     image: jwilder/docker-gen
