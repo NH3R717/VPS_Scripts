@@ -20,7 +20,7 @@ services:
 networks:
   default:
     external:
-      name: nginx-proxy
+      name: ${NETWORK}
 
 #     - LETSENCRYPT_HOST=domain.com
 # 'ro' = read only

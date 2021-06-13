@@ -8,6 +8,7 @@ set -euxo pipefail
 #########################
 
 export CONTAINER_DIR="${HOME_DIR}/Docker/Wagui"
+export NETWORK=webproxy
 
 echo ${CONTAINER_DIR}
 
@@ -18,6 +19,7 @@ mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
 echo "DOMAIN_NAME_1=${DOMAIN_NAME_1}" >> .env
 echo "DOMAIN_NAME_2=${DOMAIN_NAME_2}" >> .env
+echo ${NETWORK}
 # echo "VULTR_IP=${VULTR_IP}" >> .env
 
 ## Add website dir

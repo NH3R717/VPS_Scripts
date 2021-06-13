@@ -8,7 +8,9 @@ set -euxo pipefail
 ###########################
 
 export CONTAINER_DIR="${HOME_DIR}/Docker/Nginx"
+export NETWORK=webproxy
 echo ${CONTAINER_DIR}
+
 
 # For docker-gen
 mkdir -p /tmp/templates && cd /tmp/templates
