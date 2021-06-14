@@ -6,7 +6,7 @@ services:
     container_name: web_wagui
     expose:
       - 80
-      - 8080
+      # - 8080
       # - 443
     # env_file:
     #   - .env
@@ -17,7 +17,7 @@ services:
       - "LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}"
       # - "LETSENCRYPT_HOST=subdomain.yourdomain.tld"
       # - "NETWORK=${NETWORK}"
-      - "VIRTUAL_PORT=8080"
+      # - "VIRTUAL_PORT=8080, 80"
     volumes:
       - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
     restart: unless-stopped
