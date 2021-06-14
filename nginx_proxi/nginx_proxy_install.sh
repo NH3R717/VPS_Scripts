@@ -21,7 +21,7 @@ mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 
 # Add ENV for docker-compose.yml use
 # echo "VULTR_IP=${VULTR_IP}" >> .env
-echo NGINX_WEB=nginx-web >> .env
+echo NGINX_WEB=web_wagui >> .env
 echo DOCKER_GEN=nginx-gen >> .env
 echo LETS_ENCRYPT=nginx-letsencrypt >> .env
 echo NETWORK=webproxy >> .env
