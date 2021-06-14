@@ -19,7 +19,7 @@ services:
       - ${SERVER_PATH}/nginx/certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: unless-stopped
-    command: ["nginx", "-g", "daemon off;"]
+    # command: ["nginx", "-g", "daemon off;"]
     tty: true
     networks:
       - default
