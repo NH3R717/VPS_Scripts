@@ -10,10 +10,10 @@ services:
     # env_file:
     #   - .env
     environment:
-      - "VIRTUAL_HOST=$www.{DOMAIN_NAME_1}"
+      - VIRTUAL_HOST=www.${DOMAIN_NAME_1}, ${DOMAIN_NAME_1}, .${DOMAIN_NAME_1}
       # - "VIRTUAL_HOST=.${DOMAIN_NAME_1}, .${DOMAIN_NAME_2}"
-      - "LETSENCRYPT_HOST=$www.{DOMAIN_NAME_1}"
-      - "LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}"
+      - LETSENCRYPT_HOST=www.${DOMAIN_NAME_1}, ${DOMAIN_NAME_1}, .${DOMAIN_NAME_1}
+      - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
       # - "LETSENCRYPT_HOST=subdomain.yourdomain.tld"
       # - "NETWORK=${NETWORK}"
       # - "VIRTUAL_PORT=8080"
