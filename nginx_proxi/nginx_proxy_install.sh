@@ -30,6 +30,7 @@ echo NGINX_FILES_PATH=${CONTAINER_DIR} >> .env
 echo SERVER_PATH=$(pwd)/.server >> .env 
 echo ROOT_PATH=$(pwd) >> .env
 echo CONTAINER_DIR="${HOME_DIR}/Docker/Nginx" >> .env
+echo "LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}"
 
 
 # 4. Download the latest version of nginx.tmpl
