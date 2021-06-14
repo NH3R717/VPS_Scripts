@@ -16,6 +16,7 @@ echo ${CONTAINER_DIR}
 mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
 
 # Add ENV for docker-compose.yml use
+echo "NETWORK=webproxy" >> .env
 echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
 echo "DOMAIN_NAME_1=${DOMAIN_NAME_1}" >> .env
 echo "DOMAIN_NAME_2=${DOMAIN_NAME_2}" >> .env
@@ -37,6 +38,8 @@ cp -a . .. && cd .. && rm -rf Wagui-Restaurant-master && cd ..
 pwd
 # Import docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web_wagui/docker-compose.yml > docker-compose.yml
+# Create nginx network
+sudo docker network create ${NETWORK}
 # Build and run container w/ ENV
 docker-compose up -d --build
 
