@@ -5,8 +5,8 @@ services:
     image: nginxinc/nginx-unprivileged:stable-alpine
     container_name: web_wagui
     # expose:
-    #   - 80
-    #   - 8080#
+      - 80
+      - 443
     env_file:
       - .env
     environment:
