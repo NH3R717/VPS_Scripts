@@ -68,3 +68,6 @@ networks:
   default:
     external:
       name: ${NETWORK}
+
+volumes:
+  acme:
