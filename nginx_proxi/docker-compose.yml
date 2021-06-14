@@ -64,10 +64,10 @@ services:
     # networks:
     #   - default
 
-networks:
-  default:
-    external:
-      name: ${NETWORK}
+# networks:
+#   default:
+#     external:
+#       name: ${NETWORK}
 
 volumes:
   certs:
