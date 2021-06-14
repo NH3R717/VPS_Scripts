@@ -14,9 +14,9 @@ services:
       # - DEFAULT_HOST=evin-records.dev
       - DEBUG="true"
     volumes:
-      - ${CONTAINER_DIR}/certs:/etc/nginx/certs
-      - ${CONTAINER_DIR}/vhost:/etc/nginx/vhost.d
-      - ${CONTAINER_DIR}/html:/usr/share/nginx/html
+      - $certs:/etc/nginx/certs
+      - $vhost:/etc/nginx/vhost.d
+      - $html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
     restart: unless-stopped
     # command: ["nginx", "-g", "daemon off;"]
@@ -70,4 +70,7 @@ networks:
       name: ${NETWORK}
 
 volumes:
+  certs:
+  vhost:
+  html:
   acme:
