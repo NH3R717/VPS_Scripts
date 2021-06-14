@@ -16,7 +16,7 @@ services:
       - "LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}"
       # - "LETSENCRYPT_HOST=subdomain.yourdomain.tld"
       # - "NETWORK=${NETWORK}"
-      # - "VIRTUAL_PORT=8080"
+      - "VIRTUAL_PORT=8080"
     volumes:
       - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
     restart: unless-stopped
