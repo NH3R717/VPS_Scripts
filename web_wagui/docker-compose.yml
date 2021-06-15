@@ -21,9 +21,9 @@ services:
     volumes:
       - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
     restart: unless-stopped
-    network_mode: "bridge"
-    # networks:
-    #   - default
+    # network_mode: "bridge"
+    networks:
+      - default
   
 networks:
   default:
