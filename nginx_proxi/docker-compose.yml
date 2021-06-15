@@ -3,16 +3,17 @@ version: "2.1"
 services:
 
   nginx-proxy:
-    image: jwilder/nginx-proxy:alpine-stable
+    image: jwilder/nginx-proxy:alpine
     container_name: nginx-proxy
     # labels:
     #   com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
     ports:
       - 8080:80
       - 443:443
-    # environment:
+    environment:
       # - DEFAULT_HOST=evin-records.dev
-      # - DEBUG="true"
+      - ENABLE_IPV6=true
+      - DEBUG="true"
     volumes:
       - certs:/etc/nginx/certs
       - vhost:/etc/nginx/vhost.d
