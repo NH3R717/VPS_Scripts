@@ -21,8 +21,9 @@ services:
     restart: unless-stopped
     # command: ["nginx", "-g", "daemon off;"]
     # tty: true
-    # networks:
-    #   - default
+    network_mode: "bridge"
+    networks:
+      - default
 
   # nginx-gen:
   #   image: jwilder/docker-gen
@@ -41,8 +42,8 @@ services:
   #     # - ./.server/templa:/etc/docker-gen/templates/:rw
   #   environment:
   #     - DEBUG="true"
-  #   networks:
-  #     - default
+    networks:
+      - default
 
   nginx-letsencrypt:
     image: nginxproxy/acme-companion
@@ -64,10 +65,10 @@ services:
     # networks:
     #   - default
 
-# networks:
-#   default:
-#     external:
-#       name: ${NETWORK}
+networks:
+  default:
+    external:
+      name: ${NETWORK}
 
 volumes:
   certs:
