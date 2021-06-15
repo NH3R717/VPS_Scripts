@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
     # command: ["nginx", "-g", "daemon off;"]
     # tty: true
-    network_mode: "bridge"
+    # network_mode: "bridge"
     networks:
       - default
 
@@ -62,8 +62,8 @@ services:
       # - NGINX_PROXY_CONTAINER="${NGINX_WEB}"
       - "DEFAULT_EMAIL=${DEFAULT_EMAIL}"
       # - DEBUG="true"
-    # networks:
-    #   - default
+    networks:
+      - default
 
 networks:
   default:

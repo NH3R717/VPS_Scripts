@@ -22,8 +22,8 @@ services:
       - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
     restart: unless-stopped
     network_mode: "bridge"
-    networks:
-      - default
+    # networks:
+    #   - default
   
 networks:
   default:
