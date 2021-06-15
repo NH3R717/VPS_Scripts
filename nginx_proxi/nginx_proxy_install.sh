@@ -42,7 +42,7 @@ echo "LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}"
 # Import docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/docker-compose.yml > docker-compose.yml
 # Create nginx network
-#! sudo docker network create ${NETWORK}
+sudo docker network create ${NETWORK}
 # Build and run container
 docker-compose up -d --build
 
