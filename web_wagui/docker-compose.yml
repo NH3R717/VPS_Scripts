@@ -5,9 +5,9 @@ services:
     # image: nginxinc/nginx-unprivileged:stable-alpine
     container_name: web_wagui
     expose:
-      # - 80
+      - 80
       - 8080
-      # - 443
+      - 443
     # env_file:
     #   - .env
     environment:
@@ -21,13 +21,13 @@ services:
     volumes:
       - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
     restart: unless-stopped
-    # networks:
-    #   - default
+    networks:
+      - default
   
-# networks:
-#   default:
-#     external:
-#       name: ${NETWORK}
+networks:
+  default:
+    external:
+      name: ${NETWORK}
 
 #     - LETSENCRYPT_HOST=domain.com
 # 'ro' = read only
