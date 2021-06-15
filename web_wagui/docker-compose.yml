@@ -4,7 +4,7 @@ services:
     # image: nginx
     image: nginxinc/nginx-unprivileged:stable-alpine
     container_name: web_wagui
-    CERT_NAME: default
+    # CERT_NAME: default
     expose:
       - 80
       # - 8080
