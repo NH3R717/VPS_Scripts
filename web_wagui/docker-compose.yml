@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   nginx-alpine-web:
-    image: nginx
-    # image: nginxinc/nginx-unprivileged:stable-alpine
+    # image: nginx
+    image: nginxinc/nginx-unprivileged:stable-alpine
     container_name: web_wagui
     expose:
       - 80
