@@ -35,8 +35,8 @@ echo "LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}"
 
 # 4. Download the latest version of nginx.tmpl
 
-# mkdir -p /etc/docker-gen/templates/
-# curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > /etc/docker-gen/templates/nginx.tmpl
+mkdir -p /etc/docker-gen/templates/
+curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > /etc/docker-gen/templates/nginx.tmpl
 
 
 # Import docker-compose.yml
