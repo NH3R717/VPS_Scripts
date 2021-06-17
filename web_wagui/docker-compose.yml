@@ -20,14 +20,20 @@ services:
       # - "NETWORK=${NETWORK}"
       # - "VIRTUAL_PORT=8080"
       - DEBUG=true
-    # volumes:
-    #   - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
+    volumes:
+      - "${CONTAINER_DIR}/html:/usr/share/nginx/html:ro"
+      - conf:/etc/nginx/conf.d
+      - certs:/etc/nginx/certs
     restart: always
 
     networks:
       default:
         external:
           name: nginx-proxy
+
+volumes:
+  conf:
+  certs:
 
 # networks:
 #   default:
