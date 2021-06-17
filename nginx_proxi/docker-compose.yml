@@ -42,3 +42,7 @@ networks:
   default:
     external:
       name: nginx-proxy
+
+# https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose/blob/master/2-containers/compose-v2/docker-compose.yaml
+
+# https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose
