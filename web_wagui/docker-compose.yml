@@ -26,10 +26,10 @@ services:
       - certs:/etc/nginx/certs
     restart: always
 
-    networks:
-      default:
-        external:
-          name: nginx-proxy
+networks:
+  default:
+    external:
+      name: nginx-proxy
 
 volumes:
   conf:
