@@ -8,7 +8,7 @@ set -euxo pipefail
 ###########################
 
 export CONTAINER_DIR="${HOME_DIR}/Docker/Nginx"
-export NETWORK=webproxy
+export NETWORK=nginx-proxy
 echo ${CONTAINER_DIR}
 
 
