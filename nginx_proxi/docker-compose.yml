@@ -5,6 +5,8 @@ services:
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
+    environment: 
+      - DEBUG=1
     ports:
       - "80:80"
       - "443:443"
@@ -20,6 +22,8 @@ services:
   letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-proxy-le
+    environment: 
+      - DEBUG=1
     depends_on:
       - nginx-proxy
     volumes_from:
