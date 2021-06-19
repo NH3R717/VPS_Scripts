@@ -8,7 +8,7 @@ set -euxo pipefail
 ###########################
 
 export CONTAINER_DIR="${HOME_DIR}/Docker/Nginx"
-export NETWORK=nginx-proxy
+export NETWORK=${NETWORK}
 echo ${CONTAINER_DIR}
 
 # Create dir for Docker container – set to user permissions
