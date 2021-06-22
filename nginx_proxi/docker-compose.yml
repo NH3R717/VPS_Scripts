@@ -3,7 +3,7 @@ version: '2'
 services:
 
   nginx-proxy:
-    image: jwilder/nginx-proxy:latest
+    image: jwilder/nginx-proxy
     container_name: nginx-proxy
     environment: 
       - DEBUG=1
