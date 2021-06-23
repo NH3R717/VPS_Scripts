@@ -1,0 +1,41 @@
+# add ENV for docker-compose.yml use
+
+echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
+export NETWORK
+echo "NETWORK=${NETWORK}" >> .env
+
+export PROJECT_NAME
+echo "PROJECT_NAME=${PROJECT_NAME}" >> .env
+export GIT_BRANCH
+echo "GIT_BRANCH=${GIT_BRANCH}" >> .env
+
+export DOMAIN_NAME_1
+echo "DOMAIN_NAME_1=${DOMAIN_NAME_1}" >> .env
+export DOMAIN_NAME_2
+echo "DOMAIN_NAME_2=${DOMAIN_NAME_2}" >> .env
+export DOMAIN_NAME_3
+echo "DOMAIN_NAME_3=${DOMAIN_NAME_3}" >> .env
+export DEFAULT_EMAIL
+echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
+
+## add website dir
+mkdir html && cd html && sudo rm -f ${PWD}
+## import web files
+curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
+## uncompress webfiles and remove master.zip 
+unzip master.zip && rm -rf master.zip
+## remove unnecessary files
+cd "${PROJECT_NAME}-${GIT_BRANCH}" && sudo rm -f README.md .gitignore LICENSE docker-compose.yml ${PROJECT_NAME}_install.sh
+## copy files from *-branch to htlm
+cp -a . .. && cd .. && sudo rm -rf "${PROJECT_NAME}-${GIT_BRANCH}" && cd ..
+echo "Current working directory ${PWD}"
+
+# import docker-compose.yml
+sudo curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
+# build and run container w/ ENV
+sudo docker-compose up -d --build
+
+# set to user permissions
+sudo chmod 0750 "${CONTAINER_DIR}"
+sudo chown --recursive \
+"${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
