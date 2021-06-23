@@ -8,17 +8,10 @@ set -euxo pipefail
 ###########################
 
 export CONTAINER_DIR="${HOME_DIR}/Docker/Nginx"
-export NETWORK=${NETWORK}
-echo ${CONTAINER_DIR}
+echo "Created container dir ENV ${CONTAINER_DIR}"
 
-# Create dir for Docker container – set to user permissions
+# Create dir for Docker container 
 mkdir -p ${CONTAINER_DIR} && cd "${CONTAINER_DIR}"
-
-echo CONTAINER_DIR="${HOME_DIR}/Docker/Nginx" >> .env
-
-# Download the latest version of nginx.tmpl
-# mkdir -p /etc/docker-gen/templates/
-# curl https://raw.githubusercontent.com/jwilder/nginx-proxy/master/nginx.tmpl > /etc/docker-gen/templates/nginx.tmpl
 
 # Import docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/docker-compose.yml > docker-compose.yml
@@ -31,5 +24,3 @@ docker-compose up -d --build
 chmod 0750 "${CONTAINER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
-# Rem e .env
-# rm -f .env
