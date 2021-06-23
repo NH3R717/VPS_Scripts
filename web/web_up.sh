@@ -29,7 +29,7 @@ export DEFAULT_EMAIL
 echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 
 ## add website dir
-mkdir html && cd html && sudo rm -f ${PWD}
+mkdir html && cd html
 ## import web files
 curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
 ## uncompress webfiles and remove master.zip 
