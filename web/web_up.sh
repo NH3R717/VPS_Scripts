@@ -33,7 +33,7 @@ mkdir html && cd html
 ## import web files
 curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
 ## uncompress webfiles and remove master.zip 
-unzip master.zip && rm -rf master.zip
+unzip ${GIT_BRANCH}.zip && rm -rf ${GIT_BRANCH}.zip
 ## remove unnecessary files
 cd "${PROJECT_NAME}-${GIT_BRANCH}" && sudo rm -f README.md .gitignore LICENSE docker-compose.yml ${PROJECT_NAME}_install.sh
 ## copy files from *-branch to htlm
