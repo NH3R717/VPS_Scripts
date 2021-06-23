@@ -1,3 +1,13 @@
+
+echo \
+'
+
+#################################
+### Install Script Pt.2 Start ###
+#################################
+
+'
+
 # add ENV for docker-compose.yml use
 
 echo "CONTAINER_DIR=${CONTAINER_DIR}" >> .env
@@ -39,3 +49,12 @@ sudo docker-compose up -d --build
 sudo chmod 0750 "${CONTAINER_DIR}"
 sudo chown --recursive \
 "${USERNAME}":"${USERNAME}" "${CONTAINER_DIR}"
+
+echo \
+'
+
+####################################
+### Install Script Pt.2 Complete ###
+####################################
+
+'
