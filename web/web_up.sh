@@ -39,7 +39,7 @@ curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRA
 ## uncompress webfiles and remove master.zip 
 unzip ${GIT_BRANCH}.zip && rm -rf ${GIT_BRANCH}.zip
 ## remove unnecessary files
-cd "${PROJECT_NAME}-${GIT_BRANCH}" && sudo rm -f src README.md .gitignore LICENSE gatsby* package* ${PROJECT_NAME}_install.sh
+cd "${PROJECT_NAME}-${GIT_BRANCH}" && sudo rm -rf src README.md .gitignore LICENSE gatsby* package* ${PROJECT_NAME}_install.sh
 ## copy files from *-branch to htlm
 cp -a . .. && cd .. && sudo rm -rf "${PROJECT_NAME}-${GIT_BRANCH}" && cd ..
 echo "Current working directory ${PWD}"
