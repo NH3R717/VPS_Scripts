@@ -25,6 +25,10 @@ export DOMAIN_NAME_2
 echo "DOMAIN_NAME_2=${DOMAIN_NAME_2}" >> .env
 export DOMAIN_NAME_3
 echo "DOMAIN_NAME_3=${DOMAIN_NAME_3}" >> .env
+export DOMAIN_NAME_4
+echo "DOMAIN_NAME_4=${DOMAIN_NAME_4}" >> .env
+export DOMAIN_NAME_5
+echo "DOMAIN_NAME_5=${DOMAIN_NAME_5}" >> .env
 export DEFAULT_EMAIL
 echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 
