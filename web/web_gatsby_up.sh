@@ -36,6 +36,8 @@ echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
 ## uncompress webfiles and remove master.zip 
 unzip ${GIT_BRANCH}.zip && rm -rf ${GIT_BRANCH}.zip
+cd "${PROJECT_NAME}-${GIT_BRANCH}" && cd ..
+echo "Current working directory ${PWD}"
 # import docker-compose.yml
 # sudo curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
 # build and run container w/ ENV
