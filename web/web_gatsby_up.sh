@@ -46,7 +46,7 @@ sudo docker-compose up -d --build
 cd ..
 
 
-mv docker-compose.yml Dockerfile /public ..
+mv docker-compose.yml Dockerfile /app .env ..
 cd ..
 rm -rf "${PROJECT_NAME}-${GIT_BRANCH}"    
 
