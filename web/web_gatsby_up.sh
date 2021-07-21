@@ -43,7 +43,6 @@ echo "Current working directory ${PWD}"
 # sudo curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
 # build and run container w/ ENV
 sudo docker-compose up -d --build
-cd ..
 
 
 mv docker-compose.yml Dockerfile /app .env ..
