@@ -45,7 +45,7 @@ echo "Current working directory ${PWD}"
 sudo docker-compose up -d --build
 
 
-mv docker-compose.yml Dockerfile /app .env ..
+mv docker-compose.yml Dockerfile app .env ..
 cd ..
 rm -rf "${PROJECT_NAME}-${GIT_BRANCH}"    
 
