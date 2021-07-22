@@ -37,6 +37,7 @@ echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 mkdir site
 curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/site/index.html > site/index.html
+curl -L https://raw.githubusercontent.com/NH3R717/web_supers_home/dev/site/Index.html
 echo \
 '
 
@@ -61,5 +62,3 @@ echo \
 ####################################
 
 '
-
-#! use with Vultr "plan" : "vc2-4c-8gb", not to be used with strapi data.
