@@ -32,6 +32,8 @@ echo "DOMAIN_NAME_5=${DOMAIN_NAME_5}" >> .env
 export DEFAULT_EMAIL
 echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 
+## set RAM memory swap to HD (@ <05%)
+echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 ## import web files
 curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
 ## uncompress webfiles and remove master.zip 
@@ -45,9 +47,9 @@ echo "Current working directory ${PWD}"
 sudo docker-compose up -d --build
 
 
-mv docker-compose.yml Dockerfile app .env ..
-cd ..
-rm -rf "${PROJECT_NAME}-${GIT_BRANCH}"    
+# mv docker-compose.yml Dockerfile app .env ..
+# cd ..
+# rm -rf "${PROJECT_NAME}-${GIT_BRANCH}"    
 
 
 
