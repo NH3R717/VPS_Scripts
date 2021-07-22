@@ -39,37 +39,15 @@ curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRA
 ## uncompress webfiles and remove master.zip 
 unzip ${GIT_BRANCH}.zip && rm -rf ${GIT_BRANCH}.zip
 mv .env "${PROJECT_NAME}-${GIT_BRANCH}"
+# build and run container w/ ENV
 cd "${PROJECT_NAME}-${GIT_BRANCH}"
 echo "Current working directory ${PWD}"
-# import docker-compose.yml
-# sudo curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
-# build and run container w/ ENV
 sudo docker-compose up -d --build
 
 
-# mv docker-compose.yml Dockerfile app .env ..
-# cd ..
-# rm -rf "${PROJECT_NAME}-${GIT_BRANCH}"    
-
-
-
-# ## add website dir
-# mkdir html && cd html
-# ## import web files
-# curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
-# ## uncompress webfiles and remove master.zip 
-# unzip ${GIT_BRANCH}.zip && rm -rf ${GIT_BRANCH}.zip
-# ## remove unnecessary files
-# cd "${PROJECT_NAME}-${GIT_BRANCH}" && sudo rm -rf sc && sudo rm -f README.md .gitignore LICENSE gatsby* package* ${PROJECT_NAME}_install.sh
-# ## copy files from *-branch to htlm
-# cp -a . .. && cd .. && sudo rm -rf "${PROJECT_NAME}-${GIT_BRANCH}" && cd ..
-# echo "Current working directory ${PWD}"
-
-
-# # import docker-compose.yml
-# sudo curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
-# # build and run container w/ ENV
-# sudo docker-compose up -d --build
+mv docker-compose.yml Dockerfile app .env ..
+cd ..
+rm -rf "${PROJECT_NAME}-${GIT_BRANCH}"    
 
 # set to user permissions
 sudo chmod 0750 "${CONTAINER_DIR}"
@@ -84,3 +62,5 @@ echo \
 ####################################
 
 '
+
+# use with Vultr "plan" : "vc2-4c-8gb", not to be used with strapi data.
