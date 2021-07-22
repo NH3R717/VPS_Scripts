@@ -1,0 +1,63 @@
+
+echo \
+'
+
+#################################
+### Install Script Pt.1 Start ###
+#################################
+
+'
+
+## add ENV for docker-compose.yml use
+export NETWORK
+echo "NETWORK=${NETWORK}" >> .env
+
+export DOCKER_WEB=~/Docker/Web
+echo "DOCKER_WEB=${DOCKER_WEB}" >> .env
+
+export DOMAIN_NAME_1
+echo "DOMAIN_NAME_1=${DOMAIN_NAME_1}" >> .env
+export DOMAIN_NAME_5
+echo "DOMAIN_NAME_5=${DOMAIN_NAME_5}" >> .env
+export DEFAULT_EMAIL
+echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
+
+# projects
+cd ${DOCKER_WEB}
+mkdir Home Instruct Blog Resume
+
+## set RAM memory swap to HD (swap @ <05%)
+echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
+## import web files
+# todo docker compose from this repo
+curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
+curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/default_page/index.html > \
+${DOCKER_WEB}Home/index.html \
+${DOCKER_WEB}Instruct/index.html \
+${DOCKER_WEB}Blog/index.html \
+${DOCKER_WEB}Resume/index.html
+# curl -L https://raw.githubusercontent.com/NH3R717/web_supers_home/dev/site/index.html
+echo \
+'
+
+#################################
+### Current working directory ###
+#################################
+'
+echo "– ${PWD}"
+echo ""
+sudo docker-compose up -d --build
+   
+## set to user permissions
+sudo chmod 0750 "${DOCKER_WEB}"
+sudo chown --recursive \
+"${USERNAME}":"${USERNAME}" "${DOCKER_WEB}"
+
+echo \
+'
+
+###############################
+### Install Script Complete ###
+###############################
+
+'
