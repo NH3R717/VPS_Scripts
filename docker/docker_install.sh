@@ -49,6 +49,9 @@ chown --recursive \
 ## Install unzip for docker file imports
 sudo apt-get install -y zip
 
+## Install rsync – local to remote file transfer
+sudo apt-get install -y rsync
+
 ###################################*
 ### Useful Commands & Notes here ###
 ###################################*
