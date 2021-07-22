@@ -34,24 +34,13 @@ echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 ## set RAM memory swap to HD (@ <05%)
 echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 ## import web files
-# curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
-mkdir site
-curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/docker-compose.yml > docker-compose.yml
-curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/site/index.html > site/index.html
+curl -LO https://github.com/NH3R717/${PROJECT_NAME}/archive/refs/heads/${GIT_BRANCH}.zip
 ## uncompress webfiles and remove master.zip 
-# unzip ${GIT_BRANCH}.zip && rm -rf ${GIT_BRANCH}.zip
-# mv .env "${PROJECT_NAME}-${GIT_BRANCH}"
+unzip ${GIT_BRANCH}.zip && rm -rf ${GIT_BRANCH}.zip
+mv .env "${PROJECT_NAME}-${GIT_BRANCH}"
 ## build and run container w/ ENV
-# cd "${PROJECT_NAME}-${GIT_BRANCH}"
-echo \
-'
-
-#################################
-### Current working directory ###
-#################################
-
-'
-echo "– ${PWD}"
+cd "${PROJECT_NAME}-${GIT_BRANCH}"
+echo "Current working directory ${PWD}"
 sudo docker-compose up -d --build
 
 ## move docker files & remove build files
