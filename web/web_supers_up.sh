@@ -9,11 +9,13 @@ echo \
 '
 
 ## add ENV for docker-compose.yml use
+export DOCKER_WEB=~/Docker/Web
+echo "DOCKER_WEB=${DOCKER_WEB}" >> ${DOCKER_WEB}/.env
+
+cd ${DOCKER_WEB}
+
 export NETWORK
 echo "NETWORK=${NETWORK}" >> .env
-
-export DOCKER_WEB=~/Docker/Web
-echo "DOCKER_WEB=${DOCKER_WEB}" >> .env
 
 export DOMAIN_NAME_1
 echo "DOMAIN_NAME_1=${DOMAIN_NAME_1}" >> .env
@@ -23,7 +25,6 @@ export DEFAULT_EMAIL
 echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 
 # projects
-cd ${DOCKER_WEB}
 mkdir Home Instruct Blog Resume
 
 ## set RAM memory swap to HD (swap @ <05%)
@@ -63,3 +64,5 @@ echo \
 '
 
 ## curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/web_supers_up.sh | exec bash
+
+## cd ~/Docker/Web && sudo docker-compose down && sudo docker container prune -y && sudo docker image prune -y && sudo rm -rf ~/Docker/Web
