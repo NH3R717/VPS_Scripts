@@ -31,7 +31,7 @@ echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 ## import web files
 # todo docker compose from this repo
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/docker-compose.yml > docker-compose.yml
-curl -L https://raw.githubusercontent.com/NH3R717/${PROJECT_NAME}/${GIT_BRANCH}/default_page/index.html > \
+curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/default_page/index.html > \
 ${DOCKER_WEB}Home/index.html \
 ${DOCKER_WEB}Instruct/index.html \
 ${DOCKER_WEB}Blog/index.html \
