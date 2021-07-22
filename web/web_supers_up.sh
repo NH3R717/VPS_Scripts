@@ -33,10 +33,10 @@ echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 # todo docker compose from this repo
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/docker-compose.yml > docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/default_page/index.html | tee \
-${DOCKER_WEB}Home/index.html \
-${DOCKER_WEB}Instruct/index.html \
-${DOCKER_WEB}Blog/index.html \
-${DOCKER_WEB}Resume/index.html
+~/Docker/Web/Home/index.html \
+~/Docker/Web/Instruct/index.html \
+~/Docker/Web/Blog/index.html \
+~/Docker/Web/Resume/index.html
 # curl -L https://raw.githubusercontent.com/NH3R717/web_supers_home/dev/site/index.html
 echo \
 '
@@ -65,4 +65,4 @@ echo \
 
 ## curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/web_supers_up.sh | exec bash
 
-## cd ~/Docker/Web && sudo docker-compose down && sudo docker container prune -y && sudo docker image prune -y && sudo rm -rf ~/Docker/Web
+## cd ~/Docker/Web && sudo docker-compose down && sudo docker container prune -f && sudo docker image prune -f && cd ~/Docker && sudo rm -rf ~/Docker/Web
