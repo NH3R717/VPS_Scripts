@@ -10,9 +10,9 @@ echo \
 
 ## add ENV for docker-compose.yml use
 export DOCKER_WEB=~/Docker/Web
-echo "DOCKER_WEB=${DOCKER_WEB}" >> ${DOCKER_WEB}/.env
+mkdir ${DOCKER_WEB} && cd ${DOCKER_WEB}
+echo "DOCKER_WEB=${DOCKER_WEB}" >> .env
 
-cd ${DOCKER_WEB}
 
 export NETWORK
 echo "NETWORK=${NETWORK}" >> .env
