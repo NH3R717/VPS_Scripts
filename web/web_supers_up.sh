@@ -25,7 +25,7 @@ export DEFAULT_EMAIL
 echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 
 # projects
-mkdir Home Instruct Blog Resume
+mkdir Home Instruct Blog Projects Resume
 
 ## set RAM memory swap to HD (swap @ <05%)
 echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
