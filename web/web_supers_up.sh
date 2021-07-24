@@ -36,13 +36,14 @@ curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/default
 ~/Docker/Web/Home/index.html \
 ~/Docker/Web/Instruct/index.html \
 ~/Docker/Web/Blog/index.html \
+~/Docker/Web/Projects/index.html \
 ~/Docker/Web/Resume/index.html
 # curl -L https://raw.githubusercontent.com/NH3R717/web_supers_home/dev/site/index.html
 echo \
 '
 
 #################################
-### Current working directory ###
+### Current Working Directory ###
 #################################
 '
 echo "– ${PWD}"
