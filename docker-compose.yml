@@ -21,81 +21,81 @@ services:
 
   ###################################
 
-  web_supers_instruct:
-    image: nginx:stable-alpine
-    expose:
-      - "80"
-    environment:
-      - VIRTUAL_HOST=instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1}
-      - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1}
-      - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
-      - DEBUG=1
-    volumes:
-      - ${DOCKER_WEB}/Instruct:/usr/share/nginx/html:ro
-      - conf:/etc/nginx/conf.d
-      - certs:/etc/nginx/certs
-    restart: unless-stopped
+  # web_supers_instruct:
+  #   image: nginx:stable-alpine
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     - VIRTUAL_HOST=instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1}
+  #     - VIRTUAL_PORT=80
+  #     - LETSENCRYPT_HOST=instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1}
+  #     - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
+  #     - DEBUG=1
+  #   volumes:
+  #     - ${DOCKER_WEB}/Instruct:/usr/share/nginx/html:ro
+  #     - conf:/etc/nginx/conf.d
+  #     - certs:/etc/nginx/certs
+  #   restart: unless-stopped
 
-  ###################################
+  # ###################################
 
-  ###################################
+  # ###################################
 
-  web_supers_blog:
-    image: nginx:stable-alpine
-    expose:
-      - "80"
-    environment:
-      - VIRTUAL_HOST=blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1}
-      - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1}
-      - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
-      - DEBUG=1
-    volumes:
-      - ${DOCKER_WEB}/Blog:/usr/share/nginx/html:ro
-      - conf:/etc/nginx/conf.d
-      - certs:/etc/nginx/certs
-    restart: unless-stopped
+  # web_supers_blog:
+  #   image: nginx:stable-alpine
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     - VIRTUAL_HOST=blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1}
+  #     - VIRTUAL_PORT=80
+  #     - LETSENCRYPT_HOST=blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1}
+  #     - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
+  #     - DEBUG=1
+  #   volumes:
+  #     - ${DOCKER_WEB}/Blog:/usr/share/nginx/html:ro
+  #     - conf:/etc/nginx/conf.d
+  #     - certs:/etc/nginx/certs
+  #   restart: unless-stopped
 
-  ###################################
+  # ###################################
 
-  ###################################
+  # ###################################
 
-  web_supers_projects:
-    image: nginx:stable-alpine
-    expose:
-      - "80"
-    environment:
-      - VIRTUAL_HOST=projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
-      - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
-      - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
-      - DEBUG=1
-    volumes:
-      - ${DOCKER_WEB}/Projects:/usr/share/nginx/html:ro
-      - conf:/etc/nginx/conf.d
-      - certs:/etc/nginx/certs
-    restart: unless-stopped
+  # web_supers_projects:
+  #   image: nginx:stable-alpine
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     - VIRTUAL_HOST=projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
+  #     - VIRTUAL_PORT=80
+  #     - LETSENCRYPT_HOST=projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
+  #     - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
+  #     - DEBUG=1
+  #   volumes:
+  #     - ${DOCKER_WEB}/Projects:/usr/share/nginx/html:ro
+  #     - conf:/etc/nginx/conf.d
+  #     - certs:/etc/nginx/certs
+  #   restart: unless-stopped
 
-  ###################################
+  # ###################################
 
-  ###################################
+  # ###################################
 
-  web_supers_resume:
-    image: nginx:stable-alpine
-    expose:
-      - "80"
-    environment:
-      - VIRTUAL_HOST=resume.${DOMAIN_NAME_1}, www.resume.${DOMAIN_NAME_1}
-      - VIRTUAL_PORT=80
-      - LETSENCRYPT_HOST=resume.${DOMAIN_NAME_1}, www.resume.${DOMAIN_NAME_1}
-      - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
-      - DEBUG=1
-    volumes:
-      - ${DOCKER_WEB}/Resume:/usr/share/nginx/html:ro
-      - conf:/etc/nginx/conf.d
-      - certs:/etc/nginx/certs
-    restart: unless-stopped
+  # web_supers_resume:
+  #   image: nginx:stable-alpine
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     - VIRTUAL_HOST=resume.${DOMAIN_NAME_1}, www.resume.${DOMAIN_NAME_1}
+  #     - VIRTUAL_PORT=80
+  #     - LETSENCRYPT_HOST=resume.${DOMAIN_NAME_1}, www.resume.${DOMAIN_NAME_1}
+  #     - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
+  #     - DEBUG=1
+  #   volumes:
+  #     - ${DOCKER_WEB}/Resume:/usr/share/nginx/html:ro
+  #     - conf:/etc/nginx/conf.d
+  #     - certs:/etc/nginx/certs
+  #   restart: unless-stopped
 
 networks:
   default:
