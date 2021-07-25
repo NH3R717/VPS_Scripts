@@ -30,7 +30,6 @@ mkdir Home Instruct Blog Projects Resume
 ## set RAM memory swap to HD (swap @ <05%)
 echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 ## import web files
-# todo docker compose from this repo
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/docker-compose.yml > docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/default_page/index.html | tee \
 ~/Docker/Web/Home/index.html \
