@@ -1,10 +1,10 @@
-version: '2'
+version: "2"
 
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
     container_name: nginx-proxy
-    environment: 
+    environment:
       - DEBUG=1
     ports:
       - "80:80"
@@ -21,7 +21,7 @@ services:
   letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion:latest
     container_name: nginx-proxy-le
-    environment: 
+    environment:
       - DEBUG=1
     depends_on:
       - nginx-proxy
@@ -45,7 +45,6 @@ networks:
   default:
     external:
       name: nginx-proxy
-
 # https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose/blob/master/2-containers/compose-v2/docker-compose.yaml
 
 # https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose
