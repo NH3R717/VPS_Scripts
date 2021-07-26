@@ -23,7 +23,7 @@ services:
       - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
       - LETSENCRYPT_TEST=true
       - LETSENCRYPT_RESTART_CONTAINER=true
-      - DEBUG=1
+      - DEBUG=0
     volumes:
       - ${DOCKER_WEB}/Home:/usr/share/nginx/html:ro
       - conf:/etc/nginx/conf.d
@@ -68,7 +68,7 @@ services:
       - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
       - LETSENCRYPT_TEST=true
       - LETSENCRYPT_RESTART_CONTAINER=true
-      - DEBUG=1
+      - DEBUG=0
     volumes:
       - ${DOCKER_WEB}/Blog:/usr/share/nginx/html:ro
       - conf:/etc/nginx/conf.d
