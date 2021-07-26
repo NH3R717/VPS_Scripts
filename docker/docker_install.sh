@@ -46,11 +46,8 @@ chmod 0750 "${DOCKER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${DOCKER_DIR}"
 
-## Install unzip for docker file imports
-sudo apt-get install -y zip
-
-## Install rsync – local to remote file transfer
-sudo apt-get install -y rsync
+## Install useful dependencies
+sudo apt-get install -y zip -y rsync -y htop && sudo apt-get -y autoremove
 
 ###################################*
 ### Useful Commands & Notes here ###
