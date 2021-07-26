@@ -9,7 +9,6 @@ services:
       - VIRTUAL_HOST=${DOMAIN_NAME_5},www.${DOMAIN_NAME_5}
       # ${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
       # resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
-
       # resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
       # blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1},\n
       # instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1},\n
@@ -17,7 +16,6 @@ services:
       - LETSENCRYPT_HOST=${DOMAIN_NAME_5},www.${DOMAIN_NAME_5}
       # ${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
       # resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
-
       # resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
       # blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1},\n
       # instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1},\n
