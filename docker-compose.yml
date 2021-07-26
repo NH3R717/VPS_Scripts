@@ -13,7 +13,6 @@ services:
         # blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1},\n
         # instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1},\n
         # projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
-      - VIRTUAL_PORT=80
       - LETSENCRYPT_HOST=${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
         resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
         ${DOMAIN_NAME_5},www.${DOMAIN_NAME_5},\n
