@@ -6,14 +6,13 @@ services:
     expose:
       - "80"
     environment:
-      - VIRTUAL_HOST=${DOMAIN_NAME_5},www.${DOMAIN_NAME_5}
-      # ${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
+      - VIRTUAL_HOST=${DOMAIN_NAME_5},www.${DOMAIN_NAME_5},${DOMAIN_NAME_1},www.${DOMAIN_NAME_1}
       # resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
       # resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
       # blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1},\n
       # instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1},\n
       # projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
-      - LETSENCRYPT_HOST=${DOMAIN_NAME_5},www.${DOMAIN_NAME_5}
+      - LETSENCRYPT_HOST=${DOMAIN_NAME_5},www.${DOMAIN_NAME_5},${DOMAIN_NAME_1},www.${DOMAIN_NAME_1}
       # ${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
       # resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
       # resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
