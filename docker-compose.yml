@@ -6,17 +6,19 @@ services:
     expose:
       - "80"
     environment:
-      - VIRTUAL_HOST=${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
-        resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
-        ${DOMAIN_NAME_5},www.${DOMAIN_NAME_5},\n
-        resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
-        # blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1},\n
-        # instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1},\n
-        # projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
-      - LETSENCRYPT_HOST=${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
-        resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
-        ${DOMAIN_NAME_5},www.${DOMAIN_NAME_5},\n
-        resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
+      - VIRTUAL_HOST=n\
+      # ${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
+      # resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
+      ${DOMAIN_NAME_5},www.${DOMAIN_NAME_5}
+      # resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
+      # blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1},\n
+      # instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1},\n
+      # projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
+      - LETSENCRYPT_HOST=n/
+      # ${DOMAIN_NAME_1},www.${DOMAIN_NAME_1},\n
+      # resume.${DOMAIN_NAME_1},www.resume.${DOMAIN_NAME_1},\n
+      ${DOMAIN_NAME_5},www.${DOMAIN_NAME_5}
+      # resume.${DOMAIN_NAME_5},www.resume.${DOMAIN_NAME_5}
         # blog.${DOMAIN_NAME_1}, www.blog.${DOMAIN_NAME_1},\n
         # instruct.${DOMAIN_NAME_1}, www.instruct.${DOMAIN_NAME_1},\n
         # projects.${DOMAIN_NAME_1}, www.projects.${DOMAIN_NAME_1}
@@ -58,33 +60,33 @@ services:
   ##### !Consolidated Into Home #####
   ###################################
 
-  web_supers_blog:
-    image: nginx:stable-alpine
-    expose:
-      - "80"
-    environment:
-      - VIRTUAL_HOST=blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},\n
-        instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},\n
-        projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1},\n
-        blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},\n
-        instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},\n
-        projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5}
-        - LETSENCRYPT_HOST=blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},\n
-        instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},\n
-        projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1},\n
-        blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},\n
-        instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},\n
-        projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5}
-      - VIRTUAL_PORT=80
-      - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
-      - LETSENCRYPT_TEST=true
-      - LETSENCRYPT_RESTART_CONTAINER=true
-      - DEBUG=1
-    volumes:
-      - ${DOCKER_WEB}/Blog:/usr/share/nginx/html:ro
-      - conf:/etc/nginx/conf.d
-      - certs:/etc/nginx/certs
-    restart: unless-stopped
+  # web_supers_blog:
+  #   image: nginx:stable-alpine
+  #   expose:
+  #     - "80"
+  #   environment:
+  #     - VIRTUAL_HOST=blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},\n
+  #       instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},\n
+  #       projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1},\n
+  #       blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},\n
+  #       instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},\n
+  #       projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5}
+  #       - LETSENCRYPT_HOST=blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},\n
+  #       instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},\n
+  #       projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1},\n
+  #       blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},\n
+  #       instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},\n
+  #       projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5}
+  #     - VIRTUAL_PORT=80
+  #     - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
+  #     - LETSENCRYPT_TEST=true
+  #     - LETSENCRYPT_RESTART_CONTAINER=true
+  #     - DEBUG=1
+  #   volumes:
+  #     - ${DOCKER_WEB}/Blog:/usr/share/nginx/html:ro
+  #     - conf:/etc/nginx/conf.d
+  #     - certs:/etc/nginx/certs
+  #   restart: unless-stopped
 
   #################################
   ##### Intergraded Into Blog #####
