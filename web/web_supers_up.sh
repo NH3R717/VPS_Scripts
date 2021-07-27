@@ -25,7 +25,7 @@ export DEFAULT_EMAIL
 echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 
 # projects
-mkdir Home Instruct Blog Projects Resume
+mkdir Home Blog
 
 ## set RAM memory swap to HD (swap @ <05%)
 echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
@@ -33,10 +33,7 @@ echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/docker-compose.yml > docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/default_page/index.html | tee \
 ~/Docker/Web/Home/index.html \
-~/Docker/Web/Instruct/index.html \
 ~/Docker/Web/Blog/index.html \
-~/Docker/Web/Projects/index.html \
-~/Docker/Web/Resume/index.html
 echo \
 '
 
@@ -63,5 +60,7 @@ echo \
 '
 
 ## curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/web_supers_up.sh | exec bash
+
+## cd ~/Docker/Nginx && sudo docker-compose logs -f
 
 ## cd ~/Docker/Web && sudo docker-compose down && sudo docker container prune -f && sudo docker image prune -f && cd ~/Docker && sudo rm -rf ~/Docker/Web
