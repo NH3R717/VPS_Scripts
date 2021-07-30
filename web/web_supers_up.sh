@@ -63,4 +63,8 @@ echo \
 
 ## cd ~/Docker/Nginx && sudo docker-compose logs -f
 
+## cd ~/Docker/Web && sudo docker-compose logs -f
+
+## /Volumes/CLE/web_current/Vultr/Web/web_supers/NavHub/public
+
 ## cd ~/Docker/Web && sudo docker-compose down && sudo docker container prune -f && sudo docker image prune -f && cd ~/Docker && sudo rm -rf ~/Docker/Web
