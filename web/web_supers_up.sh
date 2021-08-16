@@ -33,7 +33,8 @@ echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/docker-compose.yml > docker-compose.yml
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/default_page/index.html | tee \
 ~/Docker/Web/Home/index.html \
-~/Docker/Web/Blog/index.html \
+~/Docker/Web/Blog/index.html 
+
 echo \
 '
 
