@@ -62,8 +62,10 @@ services:
     expose:
       - "80"
     environment:
-      - VIRTUAL_HOST=blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5},blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1}
-      - LETSENCRYPT_HOST=blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5},blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1}
+      # - VIRTUAL_HOST=blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5},blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1}
+      # - LETSENCRYPT_HOST=blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},instruct.${DOMAIN_NAME_5},www.instruct.${DOMAIN_NAME_5},projects.${DOMAIN_NAME_5},www.projects.${DOMAIN_NAME_5},blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1},instruct.${DOMAIN_NAME_1},www.instruct.${DOMAIN_NAME_1},projects.${DOMAIN_NAME_1},www.projects.${DOMAIN_NAME_1}
+      - VIRTUAL_HOST=blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1}
+      - LETSENCRYPT_HOST=blog.${DOMAIN_NAME_5},www.blog.${DOMAIN_NAME_5},blog.${DOMAIN_NAME_1},www.blog.${DOMAIN_NAME_1}
       - VIRTUAL_PORT=80
       - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
       - LETSENCRYPT_TEST=true
