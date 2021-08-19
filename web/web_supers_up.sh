@@ -10,7 +10,7 @@ echo \
 
 ## add ENV for docker-compose.yml use
 export DOCKER_WEB=~/Docker/Web/Supers
-mkdir ${DOCKER_WEB} && cd ${DOCKER_WEB}
+mkdir -pv ${DOCKER_WEB} && cd ${DOCKER_WEB}
 echo "DOCKER_WEB=${DOCKER_WEB}" >> .env
 
 
@@ -29,8 +29,9 @@ mkdir Home Blog
 
 ## set RAM memory swap to HD (swap @ <05%)
 echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
-## import web files
+## run socker compose
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/supers/docker-compose.yml > docker-compose.yml
+## import default web html
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/supers/default_page/index.html | tee \
 ~/Docker/Web/Supers/Home/index.html \
 ~/Docker/Web/Supers/Blog/index.html
@@ -64,7 +65,7 @@ echo \
 
 ## cd ~/Docker/Nginx && sudo docker-compose logs -f
 
-## cd ~/Docker/Web && sudo docker-compose logs -f
+## cd ~/Docker/Web/Supers && sudo docker-compose logs -f
 
 ## /Volumes/CLE/web_current/Vultr/Web/web_supers/NavHub/public
 
