@@ -1,7 +1,7 @@
 version: "3"
 #! Comment out debug
 services:
-  web_supers_home:
+  _supers_home:
     image: nginx:stable-alpine
     expose:
       - "80"
@@ -57,7 +57,7 @@ services:
   ##### !Consolidated Into Home #####
   ###################################
 
-  web_supers_blog:
+  _supers_blog:
     image: nginx:stable-alpine
     expose:
       - "80"
