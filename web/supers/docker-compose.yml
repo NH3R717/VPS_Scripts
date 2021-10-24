@@ -1,7 +1,7 @@
 version: "3"
 #! Comment out debug
 services:
-  _supers_home:
+  _home:
     image: nginx:stable-alpine
     expose:
       - "80"
@@ -57,7 +57,7 @@ services:
   ##### !Consolidated Into Home #####
   ###################################
 
-  _supers_blog:
+  _blog:
     image: nginx:stable-alpine
     expose:
       - "80"
@@ -123,6 +123,13 @@ services:
   #     - certs:/etc/nginx/certs
   #   restart: unless-stopped
 
+  # goaccess:
+  #   image: allinurl/goaccess
+  #   volumes:
+  #     - logs:/srv/logs
+  #     - report:/srv/report
+  #     - ${DOCKER_WEB}/GoAccess/goaccess.conf:/srv/data/goaccess.conf
+
 networks:
   default:
     external:
@@ -131,3 +138,5 @@ networks:
 volumes:
   conf:
   certs:
+  # logs:
+  # reports:
