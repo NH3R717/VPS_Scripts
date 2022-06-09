@@ -1,0 +1,30 @@
+version: "3"
+#! Comment out debug
+services:
+  _wagui:
+    image: nginx:stable-alpine
+    expose:
+      - "80"
+    environment:
+      - LETSENCRYPT_HOST=${DOMAIN_NAME_4},www.${DOMAIN_NAME_4}
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
+      - LETSENCRYPT_TEST=false
+      - LETSENCRYPT_RESTART_CONTAINER=true
+      - DEBUG=0
+    volumes:
+      - ${DOCKER_WEB}/Wagui:/usr/share/nginx/html:ro
+      - conf:/etc/nginx/conf.d
+      - certs:/etc/nginx/certs
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: ${NETWORK}
+
+volumes:
+  conf:
+  certs:
+    # logs:
+    # reports:
