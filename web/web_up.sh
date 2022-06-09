@@ -1,3 +1,7 @@
+#!/bin/bash
+#exec &>/tmp/docker_web_up.log
+# Run Fail Safe Command
+#set -euxo pipefail
 
 echo \
 '
@@ -7,42 +11,44 @@ echo \
 #######################
 
 '
+## add ENV for docker-compose.yml use (all)
 export DOCKER_WEB=~/Docker/Web
-mkdir ${DOCKER_WEB}
+mkdir ${DOCKER_WEB} && cd ${DOCKER_WEB}
 echo "DOCKER_WEB=${DOCKER_WEB}" >> .env
-
-## add ENV for docker-compose.yml use (Supers)
-export DOCKER_WEB_SUPERS=~/Docker/Web/Supers
-mkdir -pv ${DOCKER_WEB_SUPERS}
-echo "DOCKER_WEB_SUPERS=${DOCKER_WEB_SUPERS}" >> .env
-## add ENV for docker-compose.yml use (Wagui)
-export DOCKER_WEB_WAGUI=~/Docker/Web/Wagui
-mkdir -pv ${DOCKER_WEB_WAGUI}
-echo "DOCKER_WEB_WAGUI=${DOCKER_WEB_WAGUI}" >> .env
-
-
-## add ENV for docker-compose.yml use
 export NETWORK
 echo "NETWORK=${NETWORK}" >> .env
 
+## add ENV for docker-compose.yml use (Supers)
+export DOCKER_WEB_SUPERS=~/Docker/Web/Supers
+mkdir -pv ${DOCKER_WEB_SUPERS} && cd ${DOCKER_WEB_SUPERS}
+echo "DOCKER_WEB_SUPERS=${DOCKER_WEB_SUPERS}" >> .env
 export DOMAIN_NAME_1
 echo "DOMAIN_NAME_1=${DOMAIN_NAME_1}" >> .env
-export DOMAIN_NAME_4
-echo "DOMAIN_NAME_4=${DOMAIN_NAME_4}" >> .env
 export DOMAIN_NAME_5
 echo "DOMAIN_NAME_5=${DOMAIN_NAME_5}" >> .env
 export DEFAULT_EMAIL
 echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
+export NETWORK
+echo "NETWORK=${NETWORK}" >> .env
+## add ENV for docker-compose.yml use (Wagui)
+export DOCKER_WEB_WAGUI=~/Docker/Web/Wagui
+mkdir -pv ${DOCKER_WEB_WAGUI} && cd ${DOCKER_WEB_WAGUI}
+echo "DOCKER_WEB_WAGUI=${DOCKER_WEB_WAGUI}" >> .env
+export DOMAIN_NAME_4
+echo "DOMAIN_NAME_4=${DOMAIN_NAME_4}" >> .env
+export DEFAULT_EMAIL
+echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
+export NETWORK
+echo "NETWORK=${NETWORK}" >> .env
 
-# projects
-cd ~/Docker/Web && mkdir Supers/Home Supers/Blog Wagui
-
-## set RAM memory swap to HD (swap @ <05%)
+## set RAM memory swap to HD (swap @ <05%) – address over memory use w/ low performance tier VPS
 echo vm.swappiness=05 | sudo tee -a /etc/sysctl.conf
+
 ##! run docker compose (Supers)
-cd /Supers
+cd ../Supers
+## download and copy docker-compose file to project directory
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/supers/docker-compose.yml > docker-compose.yml
-## import default web html
+## import default web html (will load/show this default html prior to uploading actuall project [useful for verifying that server container is up] & build docker server container)
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/supers/default_page/index.html | tee \
 ${DOCKER_WEB_SUPERS}/Home/index.html \
 ${DOCKER_WEB_SUPERS}/Blog/index.html
@@ -50,13 +56,14 @@ sudo docker-compose up -d --build
 
 ##! run docker compose (Wagui)
 cd ../Wagui
+## download and copy docker-compose file to project directory
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/docker-compose.yml > docker-compose.yml
-## import default web html
+## import default web html (will load/show this default html prior to uploading actuall project [useful for verifying that server container is up] & build docker server container)
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/default_page/index.html \
 ${DOCKER_WEB_WAGUI}/index.html \
 sudo docker-compose up -d --build
    
-## set to user permissions
+## set to user permissions allowing docker to access files
 sudo chmod 0750 "${DOCKER_WEB}"
 sudo chown --recursive \
 "${USERNAME}":"${USERNAME}" "${DOCKER_WEB}"
