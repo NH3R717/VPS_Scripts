@@ -61,7 +61,7 @@ cd ../Wagui
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/docker-compose.yml > docker-compose.yml
 ## import default web html (will load/show this default html prior to uploading actuall project [useful for verifying that server container is up] & build docker server container)
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/default_page/index.html | tee \
-${DOCKER_WEB_WAGUI}/index.html \
+${DOCKER_WEB_WAGUI}/index.html
 sudo docker-compose up -d --build
    
 ## set to user permissions allowing docker to access files
