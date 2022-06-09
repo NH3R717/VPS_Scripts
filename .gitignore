@@ -145,5 +145,6 @@ build
 markdown_syntax.md
 notes.md
 /vultr_script
+/web/junk
 
 .vscode
