@@ -3,11 +3,16 @@ exec &>/tmp/docker_boot_script.log
 # Run Fail Safe Command
 set -euxo pipefail
 
+echo \
+'
+
 #######################################
 ### Package Update & Docker Install ###
 #######################################
 
-export DOCKER_DIR="${HOME_DIR}/Docker"
+'
+# ENV
+export DOCKER_DIR="~/Docker"
 
 # Update all packages
 sudo apt-get update -y
@@ -41,7 +46,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 ## Create dir for Docker containers – set to user permissions
-mkdir -p "${DOCKER_DIR}"
+mkdir -pv "${DOCKER_DIR}"
 chmod 0750 "${DOCKER_DIR}"
 chown --recursive \
 "${USERNAME}":"${USERNAME}" "${DOCKER_DIR}"
