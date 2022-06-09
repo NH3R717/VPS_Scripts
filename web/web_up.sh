@@ -49,6 +49,7 @@ cd ../Supers
 ## download and copy docker-compose file to project directory
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/supers/docker-compose.yml > docker-compose.yml
 ## import default web html (will load/show this default html prior to uploading actuall project [useful for verifying that server container is up] & build docker server container)
+mkdir ${DOCKER_WEB_SUPERS}/Home ${DOCKER_WEB_SUPERS}/Blog
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/supers/default_page/index.html | tee \
 ${DOCKER_WEB_SUPERS}/Home/index.html \
 ${DOCKER_WEB_SUPERS}/Blog/index.html
@@ -59,7 +60,7 @@ cd ../Wagui
 ## download and copy docker-compose file to project directory
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/docker-compose.yml > docker-compose.yml
 ## import default web html (will load/show this default html prior to uploading actuall project [useful for verifying that server container is up] & build docker server container)
-curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/default_page/index.html \
+curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/default_page/index.html | tee \
 ${DOCKER_WEB_WAGUI}/index.html \
 sudo docker-compose up -d --build
    
