@@ -26,17 +26,17 @@ echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Docker CE install – latest
+# Docker Community Edition (CE) install – latest
 sudo apt-get update -y
 sudo apt-get install -y \
 docker-ce docker-ce-cli containerd.io || true
 
-### Ensure Docker starts at boot
+### Ensure Docker starts at boot everytime
 sudo systemctl enable --now docker
 #? redundent?
 sudo systemctl is-enabled docker
 
-## Docker Compose
+## Docker Compose install
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 

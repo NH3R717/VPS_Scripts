@@ -70,6 +70,8 @@ echo \
 
 '
 
+# ! Notes
+
 ## curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/web_supers_up.sh | exec bash
 
 ## cd ~/Docker/Nginx && sudo docker-compose logs -f
