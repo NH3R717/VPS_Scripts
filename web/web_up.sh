@@ -1,7 +1,7 @@
 #!/bin/bash
 #exec &>/tmp/docker_web_up.log
 # Run Fail Safe Command
-#set -euxo pipefail
+set -euxo pipefail
 
 echo \
 '
@@ -12,14 +12,14 @@ echo \
 
 '
 ## add ENV for docker-compose.yml use (all)
-export DOCKER_WEB=~/Docker/Web
+export DOCKER_WEB="~/Docker/Web"
 mkdir ${DOCKER_WEB} && cd ${DOCKER_WEB}
 echo "DOCKER_WEB=${DOCKER_WEB}" >> .env
 export NETWORK
 echo "NETWORK=${NETWORK}" >> .env
 
 ## add ENV for docker-compose.yml use (Supers)
-export DOCKER_WEB_SUPERS=~/Docker/Web/Supers
+export DOCKER_WEB_SUPERS="~/Docker/Web/Supers"
 mkdir -pv ${DOCKER_WEB_SUPERS} && cd ${DOCKER_WEB_SUPERS}
 echo "DOCKER_WEB_SUPERS=${DOCKER_WEB_SUPERS}" >> .env
 export DOMAIN_NAME_1
@@ -31,7 +31,7 @@ echo "DEFAULT_EMAIL=${DEFAULT_EMAIL}" >> .env
 export NETWORK
 echo "NETWORK=${NETWORK}" >> .env
 ## add ENV for docker-compose.yml use (Wagui)
-export DOCKER_WEB_WAGUI=~/Docker/Web/Wagui
+export DOCKER_WEB_WAGUI="~/Docker/Web/Wagui"
 mkdir -pv ${DOCKER_WEB_WAGUI} && cd ${DOCKER_WEB_WAGUI}
 echo "DOCKER_WEB_WAGUI=${DOCKER_WEB_WAGUI}" >> .env
 export DOMAIN_NAME_4
