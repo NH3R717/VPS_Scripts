@@ -10,7 +10,8 @@ services:
       - LETSENCRYPT_HOST=${DOMAIN_NAME_4},www.${DOMAIN_NAME_4}
       - VIRTUAL_PORT=80
       - LETSENCRYPT_EMAIL=${DEFAULT_EMAIL}
-      - LETSENCRYPT_TEST=false
+      # - LETSENCRYPT_TEST=false
+      - LETSENCRYPT_TEST=true
       - LETSENCRYPT_RESTART_CONTAINER=true
       - DEBUG=0
     volumes:
