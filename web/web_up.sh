@@ -60,6 +60,7 @@ cd ../Wagui
 ## download and copy docker-compose file to project directory
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/docker-compose.yml > docker-compose.yml
 ## import default web html (will load/show this default html prior to uploading actuall project [useful for verifying that server container is up] & build docker server container)
+mkdir ${DOCKER_WEB_WAGUI}/Home
 curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/web/wagui/default_page/index.html | tee \
 ${DOCKER_WEB_WAGUI}/Home/index.html
 sudo docker-compose up -d --build
