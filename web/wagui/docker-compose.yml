@@ -15,7 +15,7 @@ services:
       - LETSENCRYPT_RESTART_CONTAINER=true
       - DEBUG=0
     volumes:
-      - ${DOCKER_WEB_WAGUI}:/usr/share/nginx/html:ro
+      - ${DOCKER_WEB_WAGUI}/Home:/usr/share/nginx/html:ro
       - conf:/etc/nginx/conf.d
       - certs:/etc/nginx/certs
     restart: unless-stopped
