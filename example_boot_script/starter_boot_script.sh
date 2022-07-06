@@ -150,9 +150,9 @@ su ${USERNAME}
 
 sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/docker/docker_install.sh | exec bash
 
-#***************************************************
-### Nginx Reverse Webserver Proxy Install Script ###
-#***************************************************
+#************************************************************
+### Nginx Reverse Web Server Reverse Proxy Install Script ###
+#************************************************************
 
 sudo curl -L https://raw.githubusercontent.com/NH3R717/VPS_Scripts/master/nginx_proxi/nginx_proxy_install.sh | exec bash
 
